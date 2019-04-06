@@ -9,6 +9,7 @@ use App\Status;
 use App\Http\Requests\CreateStatusRequest;
 use App\Http\Requests\UpdateStatusRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Rfid;
 
@@ -25,6 +26,9 @@ class StatusController extends Controller {
 	public function index(Request $request)
     {
         $status = Status::with("rfid")->get();
+        $status = Status::select(DB::raw('sum(saur) AS saur, sum(buka) AS buka, sum(itikaf) AS itikaf, DATE(created_at) AS date'))
+            ->groupBy(DB::raw('DATE(created_at)'))
+            ->get();
 
 		return view('admin.status.index', compact('status'));
 	}
@@ -38,7 +42,7 @@ class StatusController extends Controller {
 	{
 	    $rfid = Rfid::pluck("uid", "id")->prepend('Please select', null);
 
-	    
+
         $saur = Status::$saur;
         $buka = Status::$buka;
         $itikaf = Status::$itikaf;
@@ -53,7 +57,7 @@ class StatusController extends Controller {
 	 */
 	public function store(CreateStatusRequest $request)
 	{
-	    
+
 		Status::create($request->all());
 
 		return redirect()->route(config('quickadmin.route').'.status.index');
@@ -70,7 +74,7 @@ class StatusController extends Controller {
 		$status = Status::find($id);
 	    $rfid = Rfid::pluck("uid", "id")->prepend('Please select', null);
 
-	    
+
         $saur = Status::$saur;
         $buka = Status::$buka;
         $itikaf = Status::$itikaf;
@@ -88,7 +92,7 @@ class StatusController extends Controller {
 	{
 		$status = Status::findOrFail($id);
 
-        
+
 
 		$status->update($request->all());
 

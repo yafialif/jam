@@ -148,7 +148,7 @@
 
                                                         <div class="col-sm-12">
                                                             <div class="checkbox">
-                                                                <label><input id="condition" type="checkbox" value="">Setuju dengan syaratan dan ketentuan</label>
+                                                                <label><input id="condition" type="checkbox" value="" disabled>Setuju dengan syaratan dan ketentuan</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -251,17 +251,55 @@
 <script type="text/javascript" src="/ablepro/assets/js/script.js"></script>
 <script>
     $(document).ready(function() {
+        $("#rfid").keyup(function () {
+            var uid = $("#rfid").val();
+            if($("#rfid").val().length === 0){
+            }
+            else{
+                var uri = "{{ url('/') }}";
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "method": "GET",
+
+                    "headers": {
+                        "cache-control": "no-cache",
+                        "Postman-Token": "30d21590-8c00-4a63-b09a-daffa2bddac6",
+                        "Access-Control-Allow-Origin": "*",
+                        'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization, X-Request-With',
+                    },
+
+                }
+                url = uri + "/cekrfid/" + uid;
+                console.log(url);
+                $.getJSON(url, settings, function (response) {
+
+                    console.log(response);
+                    if(response === true){
+
+                        $('#condition').prop("disabled", false);
+                        $("#rfid").css("background-color", "white");
+
+                    }
+                    else{
+                        $('#condition').prop("disabled", true);
+                        $("#rfid").css("background-color", "pink");
+                    }
+                });
+            }
+
+        });
         validate();
         $('#condition').change(validate);
-    });
 
-    function validate() {
-        if ($('#condition').is(':checked')) {
-            $('#subbtn').prop("disabled", false);
-        } else {
-            $('#subbtn').prop("disabled", true);
+        function validate() {
+            if ($('#condition').is(':checked')) {
+                $('#subbtn').prop("disabled", false);
+            } else {
+                $('#subbtn').prop("disabled", true);
+            }
         }
-    }
+    });
 </script>
 </body>
 

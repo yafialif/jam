@@ -1,90 +1,112 @@
 @extends('admin.layouts.master')
-
+@section('css')
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('ablepro/assets/pages/notification/notification.css') }}">
+@endsection
 @section('content')
+    <div class="col-sm-12" >
+        <!-- Nestable card start -->
+        <div class="card">
+            <div class="card-header">
+                <h5>{{ trans('quickadmin::templates.templates-view_index-list') }}</h5>
+            </div>
+            <div class="card-block">
 
-<p>{!! link_to_route(config('quickadmin.route').'.status.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
+                @if ($status->count())
+                    <div id="table_data">
+                        <div class="table-responsive dt-responsive">
+                            <table class="table table-striped table-bordered nowrap datatable" id="datacetak">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
+                                    </th>
+                                    <th>Date</th>
+                                    <th>Sahur</th>
+                                    <th>Buka</th>
+                                    <th>Itikaf</th>
+                                </tr>
+                                </thead>
+                                <tbody class="ustad">
+                                @foreach ($status as $row)
+                                    <tr >
+                                        <td>
+                                            {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
+                                        </td>
+                                        <td>{{ $row->date }}</td>
+                                        <td>{{ $row->saur }}</td>
+                                        <td>{{ $row->buka }}</td>
+                                        <td>{{ $row->itikaf }}</td>
+                                       </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="notifications">
+                        </div>
 
-@if ($status->count())
-    <div class="portlet box green">
-        <div class="portlet-title">
-            <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
+                        <nav aria-label="Page navigation example">
+                            {{--{{ $store->links('vendor.pagination.bootstrap-4') }}--}}
+                            <div id="loading"></div>
+                        </nav>
+                    </div>
+
+
+            </div>
+
+            @else
+                {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
+            @endif
         </div>
-        <div class="portlet-body">
-            <table class="table table-striped table-hover table-responsive datatable" id="datatable">
-                <thead>
-                    <tr>
-                        <th>
-                            {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
-                        </th>
-                        <th>uid</th>
-<th>saur</th>
-<th>buka</th>
-<th>itikaf</th>
+        <div id="mymodal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p >
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Keterangan</th>
+                                    <th>Hasil</th>
+                                </tr>
+                                </thead>
+                                <tbody id="content">
 
-                        <th>&nbsp;</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach ($status as $row)
-                        <tr>
-                            <td>
-                                {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
-                            </td>
-                            <td>{{ isset($row->rfid->uid) ? $row->rfid->uid : '' }}</td>
-<td>{{ $row->saur }}</td>
-<td>{{ $row->buka }}</td>
-<td>{{ $row->itikaf }}</td>
-
-                            <td>
-                                {!! link_to_route(config('quickadmin.route').'.status.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
-                                {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.status.destroy', $row->id))) !!}
-                                {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                {!! Form::close() !!}
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <div class="row">
-                <div class="col-xs-12">
-                    <button class="btn btn-danger" id="delete">
-                        {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
-                    </button>
+                                </tbody>
+                            </table>
+                        </div>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
-            {!! Form::open(['route' => config('quickadmin.route').'.status.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
-                <input type="hidden" id="send" name="toDelete">
-            {!! Form::close() !!}
         </div>
-	</div>
-@else
-    {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
-@endif
+    </div>
+    </div>
+    </div>
+    <div class="row">
+
+    </div>
 
 @endsection
 
 @section('javascript')
-    <script>
-        $(document).ready(function () {
-            $('#delete').click(function () {
-                if (window.confirm('{{ trans('quickadmin::templates.templates-view_index-are_you_sure') }}')) {
-                    var send = $('#send');
-                    var mass = $('.mass').is(":checked");
-                    if (mass == true) {
-                        send.val('mass');
-                    } else {
-                        var toDelete = [];
-                        $('.single').each(function () {
-                            if ($(this).is(":checked")) {
-                                toDelete.push($(this).data('id'));
-                            }
-                        });
-                        send.val(JSON.stringify(toDelete));
-                    }
-                    $('#massDelete').submit();
-                }
-            });
-        });
-    </script>
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>--}}
+    {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>--}}
+    <script src="{{ URL::asset('ablepro/assets/js/bootstrap-growl.min.js') }}"></script>
+    {{--<script src="{{ URL::asset('ablepro/assets/pages/notification/notification.js') }}"></script>--}}
+    <script src="{{ URL::asset('ablepro/assets/js/pcoded.min.js') }}"></script>
+    <script src="{{ URL::asset('ablepro/assets/js/vertical/vertical-layout.min.js') }}"></script>
+    <script src="{{ URL::asset('ablepro/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+
+
 @stop

@@ -23,4 +23,7 @@ Route::post('/rfid','RfidController@index');
 Route::get('/itikaf','RegisterController@index');
 Route::post('/itikaf','RegisterController@store');
 Route::get('/pendaftaran','RegisterController@utama');
+Route::get('/cektlpn/{tlpn}','RegisterController@cektlpn');
+Route::get('/cekrfid/{uid}','RegisterController@cekRfid');
+Route::get('/updaterfid/{id}/{uid}','RegisterController@updateRfid');
 Route::post('/pendaftaran','RegisterController@simpan');

@@ -81,9 +81,7 @@
     </div>
     </div>
     </div>
-
 @endsection
-
 @section('javascript')
     <script>
         $(document).ready(function () {
