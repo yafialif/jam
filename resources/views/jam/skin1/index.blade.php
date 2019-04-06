@@ -245,6 +245,7 @@
 <input id="waktuadzan" value="{{ $jamsetting[0]->waktuadzan }}" style="display: none;">
 <input id="countdown" value="{{ $jamsetting[0]->countdown }}" style="display: none;">
 <input id="dzikirtime" value="{{ $jamsetting[0]->dzikirtime }}" style="display: none;">
+
 </body>
 <!-- Required Mudule -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
