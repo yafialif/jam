@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f664239-0894-4dbf-8e38-6be61aaff5e4" name="Default" comment="" />
+    <list default="true" id="7f664239-0894-4dbf-8e38-6be61aaff5e4" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,11 +32,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            <state relative-caret-position="131">
+              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -171,7 +182,6 @@
         <option value="$PROJECT_DIR$/public/jam/skin1/slideshow/css/style2.css" />
         <option value="$PROJECT_DIR$/public/jam/skin1/calendar/css/Calender.css" />
         <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/public/jam/skin1/countdown/scss/style.scss" />
         <option value="$PROJECT_DIR$/public/jam/skin1/countdown/css/style.css" />
         <option value="$PROJECT_DIR$/public/jam/skin1/BackgroundSlideshow/index.html" />
@@ -212,6 +222,7 @@
         <option value="$PROJECT_DIR$/resources/views/admin/partials/topbar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/jam/skin1/index.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -414,12 +425,12 @@
       <workItem from="1553045852656" duration="22650000" />
       <workItem from="1553435636651" duration="37680000" />
       <workItem from="1514794727716" duration="2023000" />
-      <workItem from="1554087832736" duration="43540000" />
+      <workItem from="1554087832736" duration="45374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258308000" />
+    <option name="totallyTimeSpent" value="260142000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="733" extended-state="6" />
@@ -454,13 +465,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="3" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -833,8 +837,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="131">
+          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
         </state>
       </provider>
     </entry>
