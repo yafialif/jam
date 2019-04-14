@@ -20,7 +20,8 @@ class Jamaah extends Model
         'tlpn',
         'jenis_kelamin',
         'alamat',
-        'kategori'
+        'kategori',
+        'image'
     ];
 
     public function InsertData(Request $request){

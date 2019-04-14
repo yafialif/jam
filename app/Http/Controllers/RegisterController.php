@@ -7,6 +7,7 @@ use App\Model\Jamaah;
 use App\Rfid;
 use App\Http\Requests\CreateJamaahRequest;
 use Schema;
+use App\Http\Controllers\Traits\ImageUpload;
 
 
 class RegisterController extends Controller
@@ -19,7 +20,8 @@ class RegisterController extends Controller
         return view('absensi.pendaftaran');
     }
 
-    public function store(Jamaah $jamaah, CreateJamaahRequest $request){
+    public function store(Jamaah $jamaah, ImageUpload $imageUpload, CreateJamaahRequest $request){
+        $request = $imageUpload->saveImage($request);
         $jamaah = $jamaah->InsertData($request);
         return view('absensi.selesai');
 

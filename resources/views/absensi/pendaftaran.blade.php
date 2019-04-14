@@ -249,6 +249,7 @@
 <script src="/ablepro/assets/js/vertical/vertical-layout.min.js"></script>
 <script src="/ablepro/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="/ablepro/assets/js/script.js"></script>
+
 <script>
     $(document).ready(function() {
         $("#rfid").keyup(function () {
@@ -300,6 +301,30 @@
             }
         }
     });
+    $(document).ready(function() {
+        $('#kelamin').on('change', function () {
+            var kelamin = $("#kelamin").val();
+            if (kelamin == 'Laki-Laki') {
+                alert('laki laki');
+            }
+            else {
+                alert('perempuan');
+            }
+        });
+    }
+    console.log('fs');
+    );
+    function kelamin() {
+        console.log('dada');
+        var kelamin = document.getElementById("kelamin").value;
+        if (kelamin == 'Laki-Laki') {
+            console.log('laki laki')
+        }
+        else {
+            console.log('perempuan')
+        }
+
+    }
 </script>
 </body>
 

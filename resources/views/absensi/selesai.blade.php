@@ -83,7 +83,7 @@
                                                 {{--<a href="#" class="text-center">Chat Admin</a>--}}
                                             </div>
                                         </div>
-                                        <a href="{{ url('/pendaftaran') }}"> <button class="btn-danger float-right p-2 align-center">Kembali</button></a>
+                                        <a href="{{ url('/itikaf') }}"> <button class="btn-danger float-right p-2 align-center">Kembali</button></a>
                                     </div>
                                 </div>
                                 <!-- Verticle Wizard card end -->

@@ -79,7 +79,7 @@
                                     <div class="card-block">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <form class="form-group" method="post" id="" action="{{ action('RegisterController@store') }}">
+                                                <form class="form-group" method="post" enctype="multipart/form-data" action="{{ action('RegisterController@store') }}">
                                                     {{ csrf_field() }}
                                                     <div class="form-group row">
                                                         <div class="col-sm-12">
@@ -106,12 +106,23 @@
                                                             <label for="password-2" class="block">Jenis Kelamin *</label>
                                                         </div>
                                                         <div class="col-sm-12">
-                                                            <select name="jenis_kelamin" class="form-control required" required>
+                                                            <select id="kelamin" name="jenis_kelamin" class="form-control required" required>
                                                                 <option value="Laki-Laki">Laki-Laki</option>
                                                                 <option value="Perempuan">Perempuan</option>
                                                             </select>
                                                         </div>
                                                     </div>
+                                                    <div class="form-group row" id="image_upload">
+                                                        <div class="col-sm-12">
+                                                            <label for="password-2" class="block">Upload Foto</label>
+                                                        </div>
+                                                        <div class="col-sm-12 align-center">
+                                                                    <p><img class="img-responsive img-thumbnail" width="250px" id='img-upload'/></p>
+                                                                    <input type="file" name="image" id="imgInp">
+
+                                                        </div>
+                                                    </div>
+
                                                     <div class="form-group row">
                                                         <div class="col-sm-12">
                                                             <label for="phone-2" class="block">Nmr Hp *</label>
@@ -163,55 +174,15 @@
 </div>
 
 
-<!-- Warning Section Starts -->
-<!-- Older IE warning message -->
-<!--[if lt IE 10]>
-<div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-    <div class="iew-container">
-        <ul class="iew-download">
-            <li>
-                <a href="http://www.google.com/chrome/">
-                    <img src="/ablepro/assets/images/browser/chrome.png" alt="Chrome">
-                    <div>Chrome</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="/ablepro/assets/images/browser/firefox.png" alt="Firefox">
-                    <div>Firefox</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.opera.com">
-                    <img src="/ablepro/assets/images/browser/opera.png" alt="Opera">
-                    <div>Opera</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.apple.com/safari/">
-                    <img src="/ablepro/assets/images/browser/safari.png" alt="Safari">
-                    <div>Safari</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="/ablepro/assets/images/browser/ie.png" alt="">
-                    <div>IE (9 & above)</div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <p>Sorry for the inconvenience!</p>
-</div>
-<![endif]-->
+</body>
+
 <!-- Warning Section Ends -->
 <!-- Required Jquery -->
 <script type="text/javascript" src="/ablepro/bower_components/jquery/js/jquery.min.js"></script>
 <script type="text/javascript" src="/ablepro/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/ablepro/bower_components/popper.js/js/popper.min.js"></script>
 <script type="text/javascript" src="/ablepro/bower_components/bootstrap/js/bootstrap.min.js"></script>
+
 <!-- waves js -->
 <script src="/ablepro/assets/pages/waves/js/waves.min.js"></script>
 <!-- jquery slimscroll js -->
@@ -233,6 +204,54 @@
 <script src="/ablepro/assets/js/vertical/vertical-layout.min.js"></script>
 <script src="/ablepro/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="/ablepro/assets/js/script.js"></script>
-</body>
+<script>
+    $(document).ready(function() {
+        $('#kelamin').on('change', function () {
+            var kelamin = $("#kelamin").val();
+            if (kelamin == 'Laki-Laki') {
+                $('#image_upload').show();
+            }
+            else {
+                $('#image_upload').hide();
+            }
+        });
+    });
+    $(document).ready( function() {
+        $(document).on('change', '.btn-file :file', function() {
+            var input = $(this),
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            input.trigger('fileselect', [label]);
+        });
+
+        $('.btn-file :file').on('fileselect', function(event, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                log = label;
+
+            if( input.length ) {
+                input.val(log);
+            } else {
+                // if( log ) alert(log);
+            }
+
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function(){
+            readURL(this);
+        });
+    });
+
+</script>
 
 </html>
