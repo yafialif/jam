@@ -51,11 +51,9 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-8 text-white">
+        <div class="col-md-8 pt-4 text-white">
             <center>
-                <h1 class="bg_shadow">{{ $jamsetting[0]->namemosque }} <img src="{{ asset('images/logo-2.png') }}" width="60px" class="bg_shadow" style="-webkit-filter: drop-shadow(5px 5px 5px #1e90ff );
-  filter: drop-shadow(5px 5px 5px #1e90ff);" alt="Cinque Terre"></h1>
-                <h5 class="bg_shadow">{{ $jamsetting[0]->alamat }}<br> <small id="longitude">Longitude : {{ $jamsetting[0]->logitude }} </small><small id="latitude"> Latitude : {{ $jamsetting[0]->latitude }}</small></h5>
+                <h1 style="font-size: 50px; letter-spacing: 5px; font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;" class="bg_shadow text-uppercase">{{ $jamsetting[0]->namemosque }} </h1>
             </center>
         </div>
         <div class="content" style="display: none">
@@ -71,12 +69,14 @@
                                 <div id="calendar" ></div>
                             </div>
                             <!-- Slide Two - Set the background image for this slide in the line below -->
-                            <div class="carousel-item" style="background-image: url('{{ asset('/images/image1.jpg')  }}'); background-size: contain; ") >
+                            @foreach($slider1 as $row)
+                            <div class="carousel-item" style="background-image: url('{{ asset('/uploads/').'/'.$row->image  }}'); background-size: contain; ") >
                                 <div class="carousel-caption d-none d-md-block">
                                     <h2 class="display-4 bg_shadow"></h2>
                                     <p class="lead bg_shadow">""</p>
                                 </div>
                             </div>
+                                @endforeach
                         </div>
                     </div>
                 </div>
@@ -84,10 +84,15 @@
                     <div id="slide-2" class="carousel slide carousel-fade rounded" data-ride="carousel">
                         <div class="carousel-inner rounded" role="listbox">
                             <!-- Slide One - Set the background image for this slide in the line below -->
-                            <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
-                                <video autoplay loop id="video-background" muted>
-                                    <source src="{{ asset('/uploads/adab_menuntut_ilmu.mp4') }}" type="video/mp4">
-                                </video>
+                            {{--<div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">--}}
+                                {{--<video autoplay loop id="video-background" muted>--}}
+                                    {{--<source src="{{ asset('/uploads/adab_menuntut_ilmu.mp4') }}" type="video/mp4">--}}
+                                {{--</video>--}}
+                            {{--</div>--}}
+                            <div class="carousel-item active" style="background-image: url('{{ asset('/images/doa.jpeg') }}'); text-align: center;">
+                                {{--<video autoplay loop id="video-background" muted>--}}
+                                    {{--<source src="{{ asset('/uploads/adab_menuntut_ilmu.mp4') }}" type="video/mp4">--}}
+                                {{--</video>--}}
                             </div>
                             <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.7); text-align: center;">
                                 <label class="badge p-1 mt-3" style="color: white;"><h2 class="bg_shadow">DOA MOHON PERLINDUNGAN DARI BAHAYA</h2></label>
@@ -147,7 +152,7 @@
         <div class="row">
             <div class="col-md-12  pt-2">
                 <div class="announcements-container border">
-                    <div class="container-title">Info <img src="{{ asset('images/logo-2.png') }}" alt="Cinque Terre"></div>
+                    <div class="container-title" style="font-size: large; font-weight: 800;">Info</div>
                     <ul class="announcements">
                         <li >Ust Dr Musyaffa’ Ad Dariny MA SIFAT SHOLAT NABI ﷺ Pekan 1 dan 3 Minggu kajian subuh di Masjid “ ألإخلاص “ Dukuh Bima</li>
                         <li >Ust Dr Firanda Andirja MA KITABUT – TAUHID Setiap Pekan minggu Ba'da Maghrib di Masjid “ ألإخلاص “ Dukuh Bima</li>
@@ -242,9 +247,6 @@
         </div>
     </div>
 </div>
-<input id="waktuadzan" value="{{ $jamsetting[0]->waktuadzan }}" style="display: none;">
-<input id="countdown" value="{{ $jamsetting[0]->countdown }}" style="display: none;">
-<input id="dzikirtime" value="{{ $jamsetting[0]->dzikirtime }}" style="display: none;">
 
 </body>
 <!-- Required Mudule -->
@@ -254,7 +256,16 @@
 <!-- Bootstrapp -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--}}
+{{--Setting--}}
+<script>
+    var time_countdown = {{ $jamsetting[0]->countdown }};
+    var time_dzikir = {{ $jamsetting[0]->dzikir_time }};
+    var time_slider2 = {{ $jamsetting[0]->slider2 }};
+    var waktu_adzan = {{ $jamsetting[0]->waktuadzan }};
+    var logitude = {{ $jamsetting[0]->logitude }};
+    var latitude = {{ $jamsetting[0]->latitude }};
+</script>
+
 <!-- Hijri Calender -->
 <script src='{{ asset('/jam/skin1/hijri-date.js') }}'></script>
 <script src='{{ asset('/jam/skin1/Calender.js') }}'></script>

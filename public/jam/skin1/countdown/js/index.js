@@ -24,7 +24,7 @@ var Countdown = {
             //  minutes: this.$.minutes.parent().attr('data-init-value'),
             //  seconds: this.$.seconds.parent().attr('data-init-value'),
             hours  : 0,
-            minutes: 1,
+            minutes: time_countdown,
             seconds: 0,
         };
 
@@ -80,7 +80,7 @@ var Countdown = {
                 LurusRapat();
                 setTimeout(function(){
                     toggleSwitcherTV();
-                    }, 7000);
+                    }, 8000);
 
             }
         }, 1000);

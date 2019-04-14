@@ -1,3 +1,4 @@
+
 @extends('admin.layouts.master')
 @section('css')
     <!-- Data Table Css -->
@@ -8,7 +9,7 @@
 
 @endsection
 @section('content')
-<div class="col-sm-12">
+    <div class="col-sm-12">
         <!-- Nestable card start -->
         <div class="card">
             <div class="card-header">
@@ -16,37 +17,48 @@
             </div>
             <div class="card-block">
                 <div id="nestable-menu" class="m-b-10">
-                    {!! link_to_route(config('quickadmin.route').'.$ROUTE$.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}
+                    {!! link_to_route(config('quickadmin.route').'.slider2.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}
                 </div>
 
 
-                    @if ($$RESOURCE$->count())
+                @if ($slider2->count())
 
 
-                        <div class="table-responsive dt-responsive">
-
-            <table class="table table-striped table-bordered nowrap datatable" id="datatable">
+                    <div class="table-responsive dt-responsive">
+            <table class="table table-striped table-hover table-responsive datatable" id="datatable">
                 <thead>
                     <tr>
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        $HEADINGS$
+                        <th>Name</th>
+<th>category</th>
+<th>file</th>
+<th>arab</th>
+<th>terjemah</th>
+<th>riwayat</th>
+
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($$RESOURCE$ as $row)
+                    @foreach ($slider2 as $row)
                         <tr>
                             <td>
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
-                            $FIELDS$
+                            <td>{{ $row->title }}</td>
+<td>{{ $row->category }}</td>
+<td>{{ $row->file }}</td>
+<td>{{ $row->arab }}</td>
+<td>{{ $row->terjemah }}</td>
+<td>{{ $row->riwayat }}</td>
+
                             <td>
-                                {!! link_to_route(config('quickadmin.route').'.$ROUTE$.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-sm btn-info')) !!}
-                                {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.$ROUTE$.destroy', $row->id))) !!}
-                                {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-sm btn-danger')) !!}
+                                {!! link_to_route(config('quickadmin.route').'.slider2.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                                {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.slider2.destroy', $row->id))) !!}
+                                {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!}
                             </td>
                         </tr>
@@ -55,12 +67,12 @@
             </table>
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-sm btn-danger" id="delete">
+                    <button class="btn btn-danger" id="delete">
                         {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
                     </button>
                 </div>
             </div>
-            {!! Form::open(['route' => config('quickadmin.route').'.$ROUTE$.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
+            {!! Form::open(['route' => config('quickadmin.route').'.slider2.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
                 <input type="hidden" id="send" name="toDelete">
             {!! Form::close() !!}
         </div>
@@ -68,11 +80,7 @@
 @else
     {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
 @endif
- </div>
 
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('javascript')

@@ -25,7 +25,7 @@ class StatusController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $status = Status::with("rfid")->get();
+//        $status = Status::with("rfid")->get();
         $status = Status::select(DB::raw('sum(saur) AS saur, sum(buka) AS buka, sum(itikaf) AS itikaf, DATE(created_at) AS date'))
             ->groupBy(DB::raw('DATE(created_at)'))
             ->get();

@@ -1,6 +1,16 @@
 @extends('admin.layouts.master')
 
+@section('css')
+
+@endsection
+
 @section('content')
+
+    <div class="col-sm-12">
+        <!-- Nestable card start -->
+        <div class="card">
+
+            <div class="card-block">
 
     <div class="row">
         <div class="col-md-10 col-md-offset-2">
@@ -27,13 +37,13 @@
         </div>
     @endif
 
-    <div class="row">
+
         <div class="col-xs-12 form-group">
-            <a href="{{ route('menu.crud') }}" class="btn btn-primary">{{ trans('quickadmin::qa.menus-index-new_crud') }}</a>
-            <a href="{{ route('menu.custom') }}" class="btn btn-primary">{{ trans('quickadmin::qa.menus-index-new_custom') }}</a>
-            <a href="{{ route('menu.parent') }}" class="btn btn-primary">{{ trans('quickadmin::qa.menus-index-new_parent') }}</a>
+            <a href="{{ route('menu.crud') }}" class="btn btn-sm btn-primary">{{ trans('quickadmin::qa.menus-index-new_crud') }}</a>
+            <a href="{{ route('menu.custom') }}" class="btn btn-sm btn-primary">{{ trans('quickadmin::qa.menus-index-new_custom') }}</a>
+            <a href="{{ route('menu.parent') }}" class="btn btn-sm btn-primary">{{ trans('quickadmin::qa.menus-index-new_parent') }}</a>
         </div>
-    </div>
+
 
     {!! Form::open(['class' => 'form-horizontal']) !!}
 
@@ -49,14 +59,15 @@
 
     <div class="row">
         <div class="col-xs-6 col-md-4">
-            <ul id="sortable" class="list-unstyled">
+
+            <ul id="sortable" class="list-unstyled ">
                 @foreach($menusList as $menu)
                     @if($menu->children()->first() == null)
-                        <li data-menu-id="{{ $menu->id }}">
-                            <span>
+                        <li class="" data-menu-id="{{ $menu->id }}">
+                            <span class="border-primary">
                                 {{ $menu->title }} {{ $menu->parent_id }}
                                 <a href="{{ route('menu.edit',[$menu->id]) }}"
-                                   class="btn btn-xs btn-default pull-right">
+                                   class="btn btn-xs  btn-default pull-right">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </span>
@@ -67,8 +78,8 @@
                             @endif
                         </li>
                     @else
-                        <li data-menu-id="{{ $menu->id }}">
-                            <span>
+                        <li class="dd-item dd3-item" data-menu-id="{{ $menu->id }}">
+                            <span class="border-primary">
                                 {{ $menu->title }}
                                 <a href="{{ route('menu.edit',[$menu->id]) }}"
                                    class="btn btn-xs btn-default pull-right">
@@ -77,14 +88,15 @@
                             </span>
                             <input type="hidden" class="menu-no" value="{{ $menu->position }}"
                                    name="menu-{{ $menu->id }}">
-                            <ul class="childs list-unstyled" style="min-height: 10px;">
+                            <ul class="childs list-unstyled dd-list" style="min-height: 10px;">
                                 @foreach($menu->children as $child)
-                                    <li>
+                                    <li class="dd-item dd3-item">
                                         <span>
                                             {{ $child->title }}
                                             <a href="{{ route('menu.edit',[$child->id]) }}"
                                                class="btn btn-xs btn-default pull-right">
                                                 <i class="fa fa-edit"></i>
+                                                <div class="dd-handle">Item 3</div>
                                             </a>
                                         </span>
                                         <input type="hidden" class="child-no" value="{{ $child->position }}"
@@ -98,30 +110,34 @@
                     @endif
                 @endforeach
             </ul>
+            </div>
         </div>
-    </div>
+
+
     @if($menusList->count() != 0)
 
-        <div class="row" id="dragMessage" style="display: none;">
+        <div class="" id="dragMessage" style="display: none;">
             <div class="col-xs-6 col-md-4">
                 <div class="alert alert-danger">
                     {{ trans('quickadmin::qa.menus-index-click_save_positions') }}
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="">
             <div class="col-xs-12">
-                {!! Form::submit(trans('quickadmin::qa.menus-index-save_positions'),['class' => 'btn btn-danger']) !!}
+                {!! Form::submit(trans('quickadmin::qa.menus-index-save_positions'),['class' => 'btn btn-sm btn-danger']) !!}
             </div>
         </div>
     @endif
 
     {!! Form::close() !!}
+            </div>
 
 @stop
 
 @section('javascript')
-    <script>
+
+                    <script>
         $(function () {
             $("#sortable").sortable({
                 placeholder: "ui-state-highlight",
@@ -159,3 +175,6 @@
         });
     </script>
 @stop
+</div>
+    </div>
+    </div>

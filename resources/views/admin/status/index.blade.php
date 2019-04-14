@@ -53,7 +53,6 @@
 
             </div>
 
-            @else
                 {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
             @endif
         </div>

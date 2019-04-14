@@ -33,7 +33,7 @@ class RfidController extends Controller
                         $insert = $this->insert_status($uid,$waktu);
                         $insert = ['pesan'=>'Alhamdulillah','LED_PIN'=>2];
                 }
-                else if( $time_now >= '19:00' && $time_now >= '00:01'){
+                else if( $time_now >= '19:00' && $time_now >= '05:01'){
                         $waktu = 'itikaf';
                         $insert = $this->insert_status($uid,$waktu);
                         $insert = ['pesan'=>'Alhamdulillah','LED_PIN'=>2];

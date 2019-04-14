@@ -4,7 +4,7 @@ $(document).ready(function() {
         interval: 10000
     });
     $('#slide-2').carousel({
-        interval: 50000
+        interval: time_slider2
     });
     $('#slide-3').carousel({
         interval: 10000
@@ -13,18 +13,20 @@ $(document).ready(function() {
 // Create two variable with the names of the months and days in an array
     var monthNames = [ "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" ];
     var dayNames= ["MINGGU","SENIN","SELASA","RABU","KAMIS","JUMAT","SABTU"]
+    setInterval( function() {
 // Create a newDate() object
     var newDate = new Date();
 // Extract the current date from Date object
     newDate.setDate(newDate.getDate());
 // Output the day, date, month and year
     $('#Date').html(dayNames[newDate.getDay()] + " - " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
-
+    },1000);
     setInterval( function() {
         // Create a newDate() object and extract the seconds of the current time on the visitor's
         var seconds = new Date().getSeconds();
         // Add a leading zero to seconds value
         $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+
     },1000);
 
     setInterval( function() {
@@ -53,7 +55,7 @@ $(document).ready(function() {
         var date = new Date();
         prayTimes.tune( {fajr:2, sunrise: 15, dhuhr:2, asr: 2, maghrib:2, isha: 2} );
 
-        var times = prayTimes.getTimes(date, [-6.2362538, 107.02441709999994], +7, 0);
+        var times = prayTimes.getTimes(date, [latitude, logitude], +7, 0);
         prayTimes.setMethod('Indonesia');
 
         document.getElementById("subuh").innerHTML = times.fajr;
@@ -182,7 +184,7 @@ function hide_modal(){
     // console.log('delay')
     // $('body').delay(40000).removeClass('modal-active');
 }
-
+//doa adzan slider pertaama setelah popup
 function doa_adzan(){
     document.getElementById("caraosel-2").innerHTML = "<div class=\"carousel-item active\" style=\"background-color: rgba(47, 53, 66,0.7); \">\n" +
         "                                    <label class=\"badge p-1 mt-3\"><h2 class=\"bg_shadow\">DOA SETELAH ADZAN</h2></label>\n" +
@@ -192,6 +194,7 @@ function doa_adzan(){
         "                                    </div>\n" +
         "                                </div>";
 }
+//setelah doa adzan
 function setelah_adzan(){
     document.getElementById("caraosel-2").innerHTML = "<div class=\"carousel-item active\" style=\"background-color: rgba(47, 53, 66,0.7); text-align: center;\">\n" +
         "                                    <label class=\"badge p-1 mt-3\" style=\"color: white;\"><h2 class=\"bg_shadow\">DOA YANG TIDAK TERTOLAK</h2></label>\n" +
@@ -209,6 +212,7 @@ function setelah_adzan(){
         "                                    </div>\n" +
         "                                </div>";
 }
+//lurus rapatkan shaft setelah countdown selesai
 function LurusRapat(){
     document.getElementById("caraosel-2").innerHTML = "<div class=\"carousel-item active\" style=\"background-color: rgba(47, 53, 66,0.7)\">\n" +
         "                                        <h1 class=\"arab bg_shadow\" id=\"lurusrapat\"></h1>\n" +
@@ -225,6 +229,7 @@ function LurusRapat(){
         waitUntilVisible: true
     }).go();
 }
+//doa setelah shalat di popup modal
 function DoaSetelahShalat(){
     document.getElementById("caraosel-2").innerHTML = " <div class=\"carousel-item active pt-3 pb-3 \" style=\"background-color: rgba(47, 53, 66,0.7); text-align: center; height: 100vh;\">\n" +
         "                                    <label class=\"badge p-2 mt-3\"><h2 class=\"bg_shadow\">DZIKIR SETELAH SHALAT</h2></label>\n" +
@@ -303,8 +308,9 @@ var onButtonDown = function(index){
         document.getElementById("switcher-tv").className = "on";
         document.getElementById("timer").className = "on";
         $('#countdowntime').hide();
+        //waktu dzikir setelah shalat
         setTimeout(function(){
             hide_modal();
-        }, 100000);
+        }, time_dzikir);
     }
 }
