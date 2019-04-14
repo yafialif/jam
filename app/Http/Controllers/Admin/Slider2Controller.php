@@ -35,8 +35,8 @@ class Slider2Controller extends Controller {
 	 */
 	public function create()
 	{
-	    
-	    
+
+
 	    return view('admin.slider2.create');
 	}
 
@@ -45,7 +45,7 @@ class Slider2Controller extends Controller {
 	 *
      * @param CreateSlider2Request|Request $request
 	 */
-	public function store(CreateSlider2Request $request)
+	public function store(Request $request)
 	{
 	    $request = $this->saveFiles($request);
 		Slider2::create($request->all());
@@ -62,8 +62,8 @@ class Slider2Controller extends Controller {
 	public function edit($id)
 	{
 		$slider2 = Slider2::find($id);
-	    
-	    
+
+
 		return view('admin.slider2.edit', compact('slider2'));
 	}
 

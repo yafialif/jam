@@ -48,7 +48,6 @@ $(document).ready(function() {
 
     //Pray Time
 
-
     setInterval(function(){
         prayTimes.adjust( { fajr:20, dhuhr:1,  maghrib:1, isha: 18} );
 
@@ -65,9 +64,9 @@ $(document).ready(function() {
         document.getElementById("maghrib").innerHTML = times.maghrib;
         document.getElementById("isya").innerHTML = times.isha;
 
-        var time = moment().subtract(3,'minutes').format('HH:mm');
+        var time = moment().subtract(2,'minutes').format('HH:mm');
         var time2 = moment().format('HH:mm');
-        var time3 = moment().subtract(13,'minutes').format('HH:mm');
+        var time3 = moment().subtract(12,'minutes').format('HH:mm');
         if(time <= times.fajr){
             $("#bg_isya").removeClass("jamactive");
             $("#bg_subuh").addClass("jamactive");
@@ -189,8 +188,8 @@ function doa_adzan(){
     document.getElementById("caraosel-2").innerHTML = "<div class=\"carousel-item active\" style=\"background-color: rgba(47, 53, 66,0.7); \">\n" +
         "                                    <label class=\"badge p-1 mt-3\"><h2 class=\"bg_shadow\">DOA SETELAH ADZAN</h2></label>\n" +
         "                                    <div class=\"carousel-caption d-none d-md-block\">\n" +
-        "                                        <h1 class=\"arab bg_shadow\">اَللّٰهُمَّ رَبَّ هٰذِهِ الدَّعْوَةِ التَّآمَّةِ، وَالصَّلاَةِ الْقَآئِمَةِ، آتِ مُحَمَّدَانِ الْوَسِيْلَةَ وَالْفَضِيْلَةَ وَالشَّرَفَ وَالدَّرَجَةَ الْعَالِيَةَ الرَّفِيْعَةَ وَابْعَثْهُ مَقَامًامَحْمُوْدَانِ الَّذِىْ وَعَدْتَهُ اِنَّكَ لاَتُخْلِفُ الْمِيْعَادَ يَآاَرْحَمَ الرَّحِمِيْ</h1>\n" +
-        "                                        <p class=\"terjemah lead bg_shadow\">\"Ya Allah, Tuhan yang mempunyai seruan yang sempurna, dan sholat yang tetap didirikan, karuniailah nabi Muhammad tempat yang luhur, kelebihan, kemuliaan, dan derajat yang tinggi. tempatkanlah dia pada kedudukan yang terpuji seperti yang telah Engkau janjikan. Sesungguhnya Engkau tiada menyalahi janji. wahai dzat yang Maha Penyayang\"</p>\n" +
+        "                                        <h1 class=\"arab bg_shadow\">اَللّٰهُمَّ رَبَّ هٰذِهِ الدَّعْوَةِ التَّآمَّةِ، وَالصَّلاَةِ الْقَآئِمَةِ، آتِ مُحَمَّدَانِ الْوَسِيْلَةَ وَالْفَضِيْلَةَ، وَابْعَثْهُ مَقَامًامَحْمُوْدَانِ الَّذِىْ وَعَدْتَهُْ</h1>\n" +
+        "                                        <p class=\"terjemah lead bg_shadow\">\"Ya Allah, Rabb pemilik panggilan yang sempurna, dan sholat yang tetap didirikan. Berikanlah derajat di Surga, dan keutamaan kepada Muhammad ﷺ‎. Dan bangkitkanlah beliau sehingga bisa menempati maqam terpuji yang telah engkau janjikan.\"</p>\n" +
         "                                    </div>\n" +
         "                                </div>";
 }
@@ -298,11 +297,14 @@ function timer() {
             setelah_adzan();
         }, 20000);
     }
+    else {
+
+    }
 }
 
 // Button On
 var onButtonDown = function(index){
-    if(index === 7){
+    if((index === 7) || (index === 8)){
         DoaSetelahShalat();
         timeline.reverse();
         document.getElementById("switcher-tv").className = "on";

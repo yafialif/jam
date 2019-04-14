@@ -84,16 +84,19 @@
                     <div id="slide-2" class="carousel slide carousel-fade rounded" data-ride="carousel">
                         <div class="carousel-inner rounded" role="listbox">
                             <!-- Slide One - Set the background image for this slide in the line below -->
-                            {{--<div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">--}}
-                                {{--<video autoplay loop id="video-background" muted>--}}
-                                    {{--<source src="{{ asset('/uploads/adab_menuntut_ilmu.mp4') }}" type="video/mp4">--}}
-                                {{--</video>--}}
-                            {{--</div>--}}
-                            <div class="carousel-item active" style="background-image: url('{{ asset('/images/doa.jpeg') }}'); text-align: center;">
+                            @if()
+                            <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
+                                <video autoplay loop id="video-background" muted>
+                                    <source src="{{ asset('/uploads/adab_menuntut_ilmu.mp4') }}" type="video/mp4">
+                                </video>
+                            </div>
+                            @elseif()
+                            <div class="carousel-item" style="background-image: url('{{ asset('/images/doa.jpeg') }}'); text-align: center;">
                                 {{--<video autoplay loop id="video-background" muted>--}}
                                     {{--<source src="{{ asset('/uploads/adab_menuntut_ilmu.mp4') }}" type="video/mp4">--}}
                                 {{--</video>--}}
                             </div>
+                            @else
                             <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.7); text-align: center;">
                                 <label class="badge p-1 mt-3" style="color: white;"><h2 class="bg_shadow">DOA MOHON PERLINDUNGAN DARI BAHAYA</h2></label>
                                 <div class="carousel-caption d-none d-md-block">
@@ -102,6 +105,7 @@
                                     <p class="lead bg_shadow">"segala puji bagi Allah yang telah menghindarkanku dari musibah yang menimpamu, serta memberikan kelebihan kepadaku atas sekian banyak ciptaan-Nya."</p>
                                 </div>
                             </div>
+                            @endif
                             <!-- Slide Two - Set the background image for this slide in the line below -->
                             <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
                                 <label class="badge p-1 mt-3"><h2 class="bg_shadow">DOA MOHON PERLINDUNGAN DARI GODAAN SETAN</h2></label>

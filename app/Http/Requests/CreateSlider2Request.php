@@ -24,8 +24,7 @@ class CreateSlider2Request extends FormRequest {
 	public function rules()
 	{
 		return [
-            'file' => 'max:2048', 
-            
+
 		];
 	}
 }
