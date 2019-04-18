@@ -27,3 +27,4 @@ Route::get('/cektlpn/{tlpn}','RegisterController@cektlpn');
 Route::get('/cekrfid/{uid}','RegisterController@cekRfid');
 Route::get('/updaterfid/{id}/{uid}','RegisterController@updateRfid');
 Route::post('/pendaftaran','RegisterController@simpan');
+Route::post('admin/jamaah/search','Admin\JamaahController@search');

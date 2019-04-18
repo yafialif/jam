@@ -73,8 +73,12 @@
                                 <!-- Form wizard with validation card start -->
                                 <!-- Verticle Wizard card start -->
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="text-center">Form Biodata Itikaf</h4>
+                                    <div class="card-header" style=" background: url('{{asset('/images/masjid.jpg')}}')no-repeat center center ;
+                                        -webkit-background-size: cover;
+                                        -moz-background-size: cover;
+                                        -o-background-size: cover;
+                                        background-size: cover; height: 200px">
+                                        <h1 class="text-center text-white pt-5">Form Biodata I'tikaf</h1>
                                     </div>
                                     <div class="card-block">
                                         <div class="row">
@@ -83,11 +87,10 @@
                                                     {{ csrf_field() }}
                                                     <div class="form-group row">
                                                         <div class="col-sm-12">
-                                                            <label for="password-2" class="block">Kategori</label>
+                                                            <label for="password-2" class="block">Lama I'tikaf *</label>
                                                         </div>
                                                         <div class="col-sm-12">
                                                             <select name="kategori" class="form-control required" required>
-                                                                <option value="itikaf">Itikaf</option>
                                                                 <option value="pulang pergi">Pulang Pergi</option>
                                                                 <option value="full 10 hari">Full 10 Hari</option>
                                                             </select>
@@ -112,39 +115,45 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row" id="image_upload">
-                                                        <div class="col-sm-12">
-                                                            <label for="password-2" class="block">Upload Foto</label>
-                                                        </div>
-                                                        <div class="col-sm-12 align-center">
-                                                                    <p><img class="img-responsive img-thumbnail" width="250px" id='img-upload'/></p>
-                                                                    <input type="file" name="image" id="imgInp">
-
-                                                        </div>
-                                                    </div>
-
                                                     <div class="form-group row">
                                                         <div class="col-sm-12">
-                                                            <label for="phone-2" class="block">Nmr Hp *</label>
+                                                            <label for="phone-2" class="block">Nomor Handphone *</label>
                                                         </div>
                                                         <div class="col-sm-12">
                                                             <input id="phone-2b" name="tlpn" type="number" class="form-control phone">
                                                         </div>
                                                     </div>
-                                                    {{--<div class="form-group row">--}}
-                                                        {{--<div class="col-sm-12">--}}
-                                                            {{--<label for="date" class="block">Tanggal Lahir</label>--}}
-                                                        {{--</div>--}}
-                                                        {{--<div class="col-sm-12">--}}
-                                                            {{--<input id="tgl_lahir" name="tgl_lahir" type="text" class="form-control date-control">--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
                                                     <div class="form-group row">
                                                         <div class="col-sm-12">
-                                                            <label for="date" class="block">Alamat Lengkap</label>
+                                                            <label for="phone-2" class="block">Nomor Telepon Saudara yang bisa di hubungi *</label>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <input id="phone-2b" name="tlpn_saudara" type="number" class="form-control phone">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-12">
+                                                            <label for="date" class="block">Tanggal Lahir * (Minmum umur 10th  atau kelahiran 2009)</label>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <input id="tgl_lahir" max="2009-01-01" name="tgl_lahir" type="date" class="form-control date-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-12">
+                                                            <label for="date" class="block">Alamat Lengkap Domisili</label>
                                                         </div>
                                                         <div class="col-sm-12">
                                                             <input id="alamat" name="alamat" type="text" class="form-control date-control" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row" id="image_upload">
+                                                        <div class="col-sm-12">
+                                                            <label for="password-2" class="block">Upload Foto KTP</label>
+                                                        </div>
+                                                        <div class="col-sm-12 align-center">
+                                                                    <p><img class="img-responsive img-thumbnail" width="250px" id='img-upload'/></p>
+                                                                    <input type="file" name="image" id="imgInp">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">

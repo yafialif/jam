@@ -80,7 +80,7 @@ var Countdown = {
                 LurusRapat();
                 setTimeout(function(){
                     toggleSwitcherTV();
-                    }, 8000);
+                    }, 12000);
 
             }
         }, 1000);

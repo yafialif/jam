@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     $('#slide-1').carousel({
-        interval: 10000
+        interval: 20000
     });
     $('#slide-2').carousel({
         interval: time_slider2
@@ -295,7 +295,7 @@ function timer() {
         doa_adzan();
         setTimeout(function(){
             setelah_adzan();
-        }, 20000);
+        }, 60000);
     }
     else {
 

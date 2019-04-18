@@ -84,28 +84,31 @@
                     <div id="slide-2" class="carousel slide carousel-fade rounded" data-ride="carousel">
                         <div class="carousel-inner rounded" role="listbox">
                             <!-- Slide One - Set the background image for this slide in the line below -->
-                            @if()
+                            @foreach($slider2 as $row)
+                            @if($row->category === 'video' )
                             <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
                                 <video autoplay loop id="video-background" muted>
-                                    <source src="{{ asset('/uploads/adab_menuntut_ilmu.mp4') }}" type="video/mp4">
+                                    <source src="{{ asset('/uploads').'/'.$row->file }}" type="video/mp4">
                                 </video>
                             </div>
-                            @elseif()
-                            <div class="carousel-item" style="background-image: url('{{ asset('/images/doa.jpeg') }}'); text-align: center;">
+                            @elseif($row->category === 'image')
+                            <div class="carousel-item" style="background-image: url('{{ asset('/uploads').'/'.$row->file }}'); text-align: center;">
                                 {{--<video autoplay loop id="video-background" muted>--}}
                                     {{--<source src="{{ asset('/uploads/adab_menuntut_ilmu.mp4') }}" type="video/mp4">--}}
                                 {{--</video>--}}
                             </div>
                             @else
                             <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.7); text-align: center;">
-                                <label class="badge p-1 mt-3" style="color: white;"><h2 class="bg_shadow">DOA MOHON PERLINDUNGAN DARI BAHAYA</h2></label>
+                                <label class="badge p-1 mt-3" style="color: white;"><h2 class="bg_shadow">{{ $row->title }}</h2></label>
                                 <div class="carousel-caption d-none d-md-block">
                                     {{--<img class="img-responsive" width="170px" src="{{ asset('/images/pray.png') }}">--}}
-                                    <h2 class="display-4 bg_shadow">اَلْـحَمْدُ للهِ الَّذِي عَافَانِي مِـمَّا ابْتَلَاكَ بِهِ وَفَضَّلَنِي عَلَى كَثِيرٍ مِـمَّنْ خَلَقَ تَفْضِيلاً</h2>
-                                    <p class="lead bg_shadow">"segala puji bagi Allah yang telah menghindarkanku dari musibah yang menimpamu, serta memberikan kelebihan kepadaku atas sekian banyak ciptaan-Nya."</p>
+                                    <h2 class="display-4 bg_shadow">{{ $row->arab }}</h2>
+                                    <p class="lead bg_shadow">"{{ $row->terjemah }}"</p>
+                                    <p class="lead bg_shadow text-c-blue">"{{ $row->riwayat }}"</p>
                                 </div>
                             </div>
                             @endif
+                            @endforeach
                             <!-- Slide Two - Set the background image for this slide in the line below -->
                             <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
                                 <label class="badge p-1 mt-3"><h2 class="bg_shadow">DOA MOHON PERLINDUNGAN DARI GODAAN SETAN</h2></label>
@@ -263,9 +266,9 @@
 {{--Setting--}}
 <script>
     var time_countdown = {{ $jamsetting[0]->countdown }};
-    var time_dzikir = {{ $jamsetting[0]->dzikir_time }};
-    var time_slider2 = {{ $jamsetting[0]->slider2 }};
-    var waktu_adzan = {{ $jamsetting[0]->waktuadzan }};
+    var time_dzikir = {{ $jamsetting[0]->dzikir_time * 60000 }};
+    var time_slider2 = {{ $jamsetting[0]->slider2 * 60000 }};
+    var waktu_adzan = {{ $jamsetting[0]->waktuadzan * 60000}};
     var logitude = {{ $jamsetting[0]->logitude }};
     var latitude = {{ $jamsetting[0]->latitude }};
 </script>

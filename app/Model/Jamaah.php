@@ -21,7 +21,11 @@ class Jamaah extends Model
         'jenis_kelamin',
         'alamat',
         'kategori',
-        'image'
+        'image',
+        'tlpn_saudara',
+        'tgl_lahir',
+
+
     ];
 
     public function InsertData(Request $request){

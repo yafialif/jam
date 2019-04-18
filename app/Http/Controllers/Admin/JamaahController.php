@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Redirect;
 use Schema;
 use App\Jamaah;
+use App\Rfid;
 use App\Http\Requests\CreateJamaahRequest;
 use App\Http\Requests\UpdateJamaahRequest;
 use Illuminate\Http\Request;
@@ -23,10 +24,20 @@ class JamaahController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $jamaah = Jamaah::all();
+        $jamaah = Jamaah::latest('created_at')->paginate(5);
 
 		return view('admin.jamaah.index', compact('jamaah'));
 	}
+
+	public function search(Request $request){
+	    $search = $request->search;
+        $jamaah = Jamaah::where('name','=',$search)
+            ->orWhere('')
+            ->join('rfid','jamaah.id','jamaah.jamaah_id')
+            ->get();
+	    return $request->search;
+
+    }
 
 	/**
 	 * Show the form for creating a new jamaah
@@ -35,8 +46,8 @@ class JamaahController extends Controller {
 	 */
 	public function create()
 	{
-	    
-	    
+
+
 	    return view('admin.jamaah.create');
 	}
 
@@ -62,8 +73,8 @@ class JamaahController extends Controller {
 	public function edit($id)
 	{
 		$jamaah = Jamaah::find($id);
-	    
-	    
+
+
 		return view('admin.jamaah.edit', compact('jamaah'));
 	}
 
