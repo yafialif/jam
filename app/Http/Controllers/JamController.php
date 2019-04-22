@@ -14,6 +14,12 @@ class JamController extends Controller
         $slider1 = Slider1::select('image')->get();
         $slider2 = Slider2::all();
         $jamsetting = Jamsetting::all();
+        return view('jam.skin1.jam', compact('jamsetting', 'slider1','slider2'));
+    }
+    function jam(){
+        $slider1 = Slider1::select('image')->get();
+        $slider2 = Slider2::all();
+        $jamsetting = Jamsetting::all();
         return view('jam.skin1.index', compact('jamsetting', 'slider1','slider2'));
     }
 }

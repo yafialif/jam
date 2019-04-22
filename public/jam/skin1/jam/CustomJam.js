@@ -102,7 +102,10 @@ $(document).ready(function() {
                 $("#dzuhur").addClass("textactive");
                 // console.log('dzuhur');
                 if(time >= times.dhuhr){
-                    show_modal();
+                    if(countdown_aktif === 1){
+                        show_modal();
+                    }
+
                 }
             }
         }
@@ -118,7 +121,9 @@ $(document).ready(function() {
                 $("#ashar").addClass("textactive");
                 // console.log('ashar');
                 if(time >= times.asr){
-                    show_modal();
+                    if(countdown_aktif === 1){
+                        show_modal();
+                    }
                 }
             }
         }
@@ -150,7 +155,9 @@ $(document).ready(function() {
                 $("#isya").addClass("textactive");
                 // console.log('isya');
                 if(time >= times.isha){
-                    show_modal();
+                    if(countdown_aktif === 1){
+                        show_modal();
+                    }
                 }
             }
         }
@@ -167,7 +174,60 @@ $(document).ready(function() {
 
 
     }, 1000);
+    getslider1();
+    setInterval(function(){
+        getslider1();
+    }, 60000);
+
 });
+
+function getslider1() {
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://192.168.200.48:8000/api/slider1",
+        "method": "GET",
+        "headers": {
+            "startdate": "2019-03-28",
+            "enddate": "2019-04-10",
+            "cache-control": "no-cache",
+            "Postman-Token": "1fa4a46a-dbf2-4517-83da-7249a245516a"
+        }
+    }
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+
+    });
+}
+function getslider1() {
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://192.168.200.48:8000/api/slider1",
+        "method": "GET",
+        "headers": {
+            "startdate": "2019-03-28",
+            "enddate": "2019-04-10",
+            "cache-control": "no-cache",
+            "Postman-Token": "1fa4a46a-dbf2-4517-83da-7249a245516a"
+        }
+    }
+    $.ajax(settings).done(function (response) {
+
+        response.forEach(function (item) {
+            var text =
+                "<div class=\"carousel-item\" style=\"background-image: url('uploads/"+item.image+"'); background-size: contain; \") >\n" +
+                "                                        <div class=\"carousel-caption d-none d-md-block\">\n" +
+                "                                            <h2 class=\"display-4 bg_shadow\"></h2>\n" +
+                "                                            <p class=\"lead bg_shadow\">\"\"</p>\n" +
+                "                                        </div>\n" +
+                "                                    </div>";
+
+        });
+        document.getElementById("slider-1").innerHTML = text;
+
+    });
+}
 
 //Modal
 function show_modal() {

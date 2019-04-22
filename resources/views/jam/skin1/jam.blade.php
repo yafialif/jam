@@ -70,12 +70,14 @@
                             </div>
                             @foreach($slider1 as $row1)
                                 <div class="carousel-item" style="background-image: url('{{ asset('uploads/').'/'.$row1->image }}'); background-size: contain; ">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h2 class="display-4 bg_shadow"></h2>
-                                        <p class="lead bg_shadow"></p>
-                                    </div>
-                                </div>
+                         <div class="carousel-caption d-none d-md-block">
+                         <h2 class="display-4 bg_shadow"></h2>
+                         <p class="lead bg_shadow"></p>
+                        </div>
+                        </div>
                             @endforeach
+
+
                         </div>
                     </div>
                 </div>
@@ -84,31 +86,31 @@
                         <div class="carousel-inner rounded" role="listbox">
                             <!-- Slide One - Set the background image for this slide in the line below -->
                             @foreach($slider2 as $row)
-                            @if($row->category === 'video' )
-                            <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
-                                <video autoplay loop id="video-background" muted>
-                                    <source src="{{ asset('/uploads').'/'.$row->file }}" type="video/mp4">
-                                </video>
-                            </div>
-                            @elseif($row->category === 'image')
-                            <div class="carousel-item" style="background-image: url('{{ asset('/uploads').'/'.$row->file }}'); text-align: center;">
-                                {{--<video autoplay loop id="video-background" muted>--}}
-                                    {{--<source src="{{ asset('/uploads/adab_menuntut_ilmu.mp4') }}" type="video/mp4">--}}
-                                {{--</video>--}}
-                            </div>
-                            @else
-                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.7); text-align: center;">
-                                <label class="badge p-1 mt-3" style="color: white;"><h2 class="bg_shadow">{{ $row->title }}</h2></label>
-                                <div class="carousel-caption d-none d-md-block">
-                                    {{--<img class="img-responsive" width="170px" src="{{ asset('/images/pray.png') }}">--}}
-                                    <h2 class="display-4 bg_shadow">{{ $row->arab }}</h2>
-                                    <p class="lead bg_shadow">"{{ $row->terjemah }}"</p>
-                                    <p class="lead bg_shadow text-c-blue">"{{ $row->riwayat }}"</p>
-                                </div>
-                            </div>
+                                @if($row->category === 'video' )
+                                    <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
+                                        <video autoplay loop id="video-background" muted>
+                                            <source src="{{ asset('/uploads').'/'.$row->file }}" type="video/mp4">
+                                        </video>
+                                    </div>
+                                @elseif($row->category === 'image')
+                                    <div class="carousel-item" style="background-image: url('{{ asset('/uploads').'/'.$row->file }}'); text-align: center;">
+                                        {{--<video autoplay loop id="video-background" muted>--}}
+                                        {{--<source src="{{ asset('/uploads/adab_menuntut_ilmu.mp4') }}" type="video/mp4">--}}
+                                        {{--</video>--}}
+                                    </div>
+                                @else
+                                    <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.7); text-align: center;">
+                                        <label class="badge p-1 mt-3" style="color: white;"><h2 class="bg_shadow">{{ $row->title }}</h2></label>
+                                        <div class="carousel-caption d-none d-md-block">
+                                            {{--<img class="img-responsive" width="170px" src="{{ asset('/images/pray.png') }}">--}}
+                                            <h2 class="display-4 bg_shadow">{{ $row->arab }}</h2>
+                                            <p class="lead bg_shadow">"{{ $row->terjemah }}"</p>
+                                            <p class="lead bg_shadow text-c-blue">"{{ $row->riwayat }}"</p>
+                                        </div>
+                                    </div>
                             @endif
-                            @endforeach
-                            <!-- Slide Two - Set the background image for this slide in the line below -->
+                        @endforeach
+                        <!-- Slide Two - Set the background image for this slide in the line below -->
                             <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
                                 <label class="badge p-1 mt-3"><h2 class="bg_shadow">DOA MOHON PERLINDUNGAN DARI GODAAN SETAN</h2></label>
                                 <div class="carousel-caption d-none d-md-block">
@@ -270,8 +272,7 @@
     var waktu_adzan = {{ $jamsetting[0]->waktuadzan * 60000}};
     var logitude = {{ $jamsetting[0]->logitude }};
     var latitude = {{ $jamsetting[0]->latitude }};
-    var countdown_aktif = 1;
-
+    var countdown_aktif = 0;
 </script>
 
 <!-- Hijri Calender -->

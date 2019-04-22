@@ -35,8 +35,8 @@ class Slider1Controller extends Controller {
 	 */
 	public function create()
 	{
-	    
-	    
+
+
 	    return view('admin.slider1.create');
 	}
 
@@ -62,8 +62,8 @@ class Slider1Controller extends Controller {
 	public function edit($id)
 	{
 		$slider1 = Slider1::find($id);
-	    
-	    
+
+
 		return view('admin.slider1.edit', compact('slider1'));
 	}
 
@@ -112,6 +112,13 @@ class Slider1Controller extends Controller {
         }
 
         return redirect()->route(config('quickadmin.route').'.slider1.index');
+    }
+
+    public function getdata()
+    {
+        $slider1 = Slider1::all();
+
+        return response()->json($slider1,200);
     }
 
 }

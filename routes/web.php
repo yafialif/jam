@@ -15,6 +15,7 @@
 //    return view('welcome');
 //});
 Route::get('/','JamController@index');
+Route::get('/praytime','JamController@jam');
 
 Route::get('/users','ApiController@users');
 

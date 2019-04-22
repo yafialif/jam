@@ -18,5 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/users','ApiController@users');
+Route::get('/slider1','Admin\Slider1Controller@getdata');
 Route::post('/rfid','RfidController@index');
 //Route::post('/coba','RfidController@index');
