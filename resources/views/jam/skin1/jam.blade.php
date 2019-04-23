@@ -267,12 +267,15 @@
 {{--Setting--}}
 <script>
     var time_countdown = {{ $jamsetting[0]->countdown }};
+    // var time_countdown = 1;
     var time_dzikir = {{ $jamsetting[0]->dzikir_time * 60000 }};
     var time_slider2 = {{ $jamsetting[0]->slider2 * 60000 }};
     var waktu_adzan = {{ $jamsetting[0]->waktuadzan * 60000}};
     var logitude = {{ $jamsetting[0]->logitude }};
     var latitude = {{ $jamsetting[0]->latitude }};
-    var countdown_aktif = 0;
+    var countdown_aktif = 1;
+    var turnoff_aktif = 1;
+    var timer_turnoff = 1*60000;
 </script>
 
 <!-- Hijri Calender -->

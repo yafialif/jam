@@ -78,9 +78,27 @@ var Countdown = {
             else {
                 clearInterval(that.countdown_interval);
                 LurusRapat();
-                setTimeout(function(){
-                    toggleSwitcherTV();
+                if(turnoff_aktif === 1){
+                    setTimeout(function(){
+                        toggleSwitcherTV();
                     }, 12000);
+                }
+                else if(turnoff_aktif === 2){
+                    setTimeout(function(){
+                        toggleSwitcherTV();
+                        setTimeout(function(){
+                            TurnoOn();
+                        }, timer_turnoff);
+                    }, 12000);
+
+                }
+                else{
+                    setTimeout(function(){
+                        TurnoOn();
+                    }, 12000);
+
+                }
+
 
             }
         }, 1000);

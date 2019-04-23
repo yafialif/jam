@@ -15,11 +15,11 @@ $(document).ready(function() {
     var dayNames= ["MINGGU","SENIN","SELASA","RABU","KAMIS","JUMAT","SABTU"]
     setInterval( function() {
 // Create a newDate() object
-    var newDate = new Date();
+        var newDate = new Date();
 // Extract the current date from Date object
-    newDate.setDate(newDate.getDate());
+        newDate.setDate(newDate.getDate());
 // Output the day, date, month and year
-    $('#Date').html(dayNames[newDate.getDay()] + " - " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+        $('#Date').html(dayNames[newDate.getDay()] + " - " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
     },1000);
     setInterval( function() {
         // Create a newDate() object and extract the seconds of the current time on the visitor's
@@ -64,9 +64,9 @@ $(document).ready(function() {
         document.getElementById("maghrib").innerHTML = times.maghrib;
         document.getElementById("isya").innerHTML = times.isha;
 
-        var time = moment().subtract(2,'minutes').format('HH:mm');
+        var time = moment().subtract(3,'minutes').format('HH:mm');
         var time2 = moment().format('HH:mm');
-        var time3 = moment().subtract(12,'minutes').format('HH:mm');
+        // var time3 = moment().subtract(12,'minutes').format('HH:mm');
         if(time <= times.fajr){
             $("#bg_isya").removeClass("jamactive");
             $("#bg_subuh").addClass("jamactive");
@@ -75,7 +75,9 @@ $(document).ready(function() {
                 $("#subuh").addClass("textactive");
                 // console.log('subuh');
                 if(time >= times.fajr){
-                    show_modal();
+                    if(countdown_aktif === 1){
+                        show_modal();
+                    }
                 }
             }
         }
@@ -84,10 +86,10 @@ $(document).ready(function() {
             $("#bg_syuruq").addClass("jamactive");
             $("#subuh").removeClass("textactive");
             // console.log('syuruq1');
-            if(time3 === times.fajr){
-                // console.log('off');
-                toggleSwitcherTV();
-            }
+            // if(time3 === times.fajr){
+            //     // console.log('off');
+            //     toggleSwitcherTV();
+            // }
             if(time2 >= times.sunrise){
                 $("#syuruq").addClass("textactive");
                 // console.log('syuruq');
@@ -113,10 +115,10 @@ $(document).ready(function() {
             $("#bg_dzuhur").removeClass("jamactive");
             $("#bg_ashar").addClass("jamactive");
             $("#dzuhur").removeClass("textactive");
-            if(time3 === times.dhuhr){
-                toggleSwitcherTV();
-                // console.log('off');
-            }
+            // if(time3 === times.dhuhr){
+            //     toggleSwitcherTV();
+            //     // console.log('off');
+            // }
             if(time2 >= times.asr){
                 $("#ashar").addClass("textactive");
                 // console.log('ashar');
@@ -131,15 +133,17 @@ $(document).ready(function() {
             $("#bg_ashar").removeClass("jamactive");
             $("#bg_maghrib").addClass("jamactive");
             $("#ashar").removeClass("textactive");
-            if(time3 === times.asr){
-                toggleSwitcherTV();
-                // console.log('off');
-            }
+            // if(time3 === times.asr){
+            //     toggleSwitcherTV();
+            //     // console.log('off');
+            // }
             if(time2 >= times.maghrib){
                 $("#maghrib").addClass("textactive");
                 // console.log('maghrib');
                 if(time >= times.maghrib){
-                    show_modal();
+                    if(countdown_aktif === 1){
+                        show_modal();
+                    }
                 }
             }
         }
@@ -147,10 +151,10 @@ $(document).ready(function() {
             $("#bg_maghrib").removeClass("jamactive");
             $("#bg_isya").addClass("jamactive");
             $("#maghrib").removeClass("textactive");
-            if(time3 === times.maghrib){
-                toggleSwitcherTV();
-                // console.log('off');
-            }
+            // if(time3 === times.maghrib){
+            //     toggleSwitcherTV();
+            //     // console.log('off');
+            // }
             if(time2 >= times.isha){
                 $("#isya").addClass("textactive");
                 // console.log('isya');
@@ -162,10 +166,10 @@ $(document).ready(function() {
             }
         }
         else if(time > times.isha){
-            if(time3 === times.isha){
-                // console.log('off');
-                toggleSwitcherTV();
-            }
+            // if(time3 === times.isha){
+            //     // console.log('off');
+            //     toggleSwitcherTV();
+            // }
             $("#bg_isya").removeClass("jamactive");
             $("#bg_subuh").addClass("jamactive");
             $("#isya").removeClass("textactive");
@@ -229,7 +233,7 @@ function getslider1() {
     });
 }
 
-//Modal
+// Modal
 function show_modal() {
     $('#modal-container').removeAttr('class').addClass('one');
     // $('body').addClass('modal-active');
@@ -365,14 +369,18 @@ function timer() {
 // Button On
 var onButtonDown = function(index){
     if((index === 7) || (index === 8)){
-        DoaSetelahShalat();
-        timeline.reverse();
-        document.getElementById("switcher-tv").className = "on";
-        document.getElementById("timer").className = "on";
-        $('#countdowntime').hide();
-        //waktu dzikir setelah shalat
-        setTimeout(function(){
-            hide_modal();
-        }, time_dzikir);
+        TurnoOn();
     }
 }
+function TurnoOn() {
+    DoaSetelahShalat();
+    timeline.reverse();
+    document.getElementById("switcher-tv").className = "on";
+    document.getElementById("timer").className = "on";
+    $('#countdowntime').hide();
+    //waktu dzikir setelah shalat
+    setTimeout(function(){
+        hide_modal();
+    }, time_dzikir);
+}
+

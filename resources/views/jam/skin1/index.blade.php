@@ -271,7 +271,8 @@
     var logitude = {{ $jamsetting[0]->logitude }};
     var latitude = {{ $jamsetting[0]->latitude }};
     var countdown_aktif = 1;
-
+    var turnoff_aktif = 0;
+    var timer_turnoff = 1*60000;
 </script>
 
 <!-- Hijri Calender -->
