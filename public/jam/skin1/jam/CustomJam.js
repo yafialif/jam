@@ -64,7 +64,7 @@ $(document).ready(function() {
         document.getElementById("maghrib").innerHTML = times.maghrib;
         document.getElementById("isya").innerHTML = times.isha;
 
-        var time = moment().subtract(3,'minutes').format('HH:mm');
+        var time = moment().subtract(4,'minutes').format('HH:mm');
         var time2 = moment().format('HH:mm');
         // var time3 = moment().subtract(12,'minutes').format('HH:mm');
         if(time <= times.fajr){
@@ -178,31 +178,13 @@ $(document).ready(function() {
 
 
     }, 1000);
-    getslider1();
+    // getslider1();
     setInterval(function(){
-        getslider1();
+        // getslider1();
     }, 60000);
 
 });
 
-function getslider1() {
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "http://192.168.200.48:8000/api/slider1",
-        "method": "GET",
-        "headers": {
-            "startdate": "2019-03-28",
-            "enddate": "2019-04-10",
-            "cache-control": "no-cache",
-            "Postman-Token": "1fa4a46a-dbf2-4517-83da-7249a245516a"
-        }
-    }
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-
-    });
-}
 function getslider1() {
     var settings = {
         "async": true,
@@ -252,7 +234,7 @@ function doa_adzan(){
     document.getElementById("caraosel-2").innerHTML = "<div class=\"carousel-item active\" style=\"background-color: rgba(47, 53, 66,0.7); \">\n" +
         "                                    <label class=\"badge p-1 mt-3\"><h2 class=\"bg_shadow\">DOA SETELAH ADZAN</h2></label>\n" +
         "                                    <div class=\"carousel-caption d-none d-md-block\">\n" +
-        "                                        <h1 class=\"arab bg_shadow\">اَللّٰهُمَّ رَبَّ هٰذِهِ الدَّعْوَةِ التَّآمَّةِ، وَالصَّلاَةِ الْقَآئِمَةِ، آتِ مُحَمَّدَانِ الْوَسِيْلَةَ وَالْفَضِيْلَةَ، وَابْعَثْهُ مَقَامًامَحْمُوْدَانِ الَّذِىْ وَعَدْتَهُْ</h1>\n" +
+        "                                        <h2 class=\"arab bg_shadow\">اَللّٰهُمَّ رَبَّ هٰذِهِ الدَّعْوَةِ التَّآمَّةِ، وَالصَّلاَةِ الْقَآئِمَةِ، آتِ مُحَمَّدَانِ الْوَسِيْلَةَ وَالْفَضِيْلَةَ، وَابْعَثْهُ مَقَامًامَحْمُوْدَانِ الَّذِىْ وَعَدْتَهُْ</h2>\n" +
         "                                        <p class=\"terjemah lead bg_shadow\">\"Ya Allah, Rabb pemilik panggilan yang sempurna, dan sholat yang tetap didirikan. Berikanlah derajat di Surga, dan keutamaan kepada Muhammad ﷺ‎. Dan bangkitkanlah beliau sehingga bisa menempati maqam terpuji yang telah engkau janjikan.\"</p>\n" +
         "                                    </div>\n" +
         "                                </div>";
@@ -296,15 +278,15 @@ function LurusRapat(){
 function DoaSetelahShalat(){
     document.getElementById("caraosel-2").innerHTML = " <div class=\"carousel-item active pt-3 pb-3 \" style=\"background-color: rgba(47, 53, 66,0.7); text-align: center; height: 100vh;\">\n" +
         "                                    <label class=\"badge p-2 mt-3\"><h2 class=\"bg_shadow\">DZIKIR SETELAH SHALAT</h2></label>\n" +
-        " <h1 class=\" bg_shadow\">أَسْتَغْفِرُ اللهَ ِ</h1>\n" +
+        " <h2 class=\" bg_shadow\">أَسْتَغْفِرُ اللهَ ِ</h2>\n" +
         "                                    <p class=\"lead bg_shadow\">Astagh-firullah 3x</p>\n" +
-        "                                    <h1 class=\" bg_shadow\">اَللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَاْلإِكْرَامِ</h1>\n" +
+        "                                    <h2 class=\" bg_shadow\">اَللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَاْلإِكْرَامِ</h2>\n" +
         "                                    <p class=\"lead bg_shadow\">Allahumma antas salaam wa minkas salaam tabaarokta yaa dzal jalaali wal ikrom.</p>\n" +
-        "                                    <h1 class=\" bg_shadow\">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ، اَللَّهُمَّ لاَ مَانِعَ لِمَا أَعْطَيْتَ، وَلاَ مُعْطِيَ لِمَا مَنَعْتَ، وَلاَ يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُِّ</h1>\n" +
+        "                                    <h2 class=\" bg_shadow\">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ، اَللَّهُمَّ لاَ مَانِعَ لِمَا أَعْطَيْتَ، وَلاَ مُعْطِيَ لِمَا مَنَعْتَ، وَلاَ يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُِّ</h2>\n" +
         "                                    <p class=\"lead bg_shadow\">Laa ilaha illallah wahdahu laa syarika lah, lahul mulku wa lahul hamdu wa huwa ‘ala kulli syai-in qodiir. Allahumma laa maani’a limaa a’thoyta wa laa mu’thiya limaa mana’ta wa laa yanfa’u dzal jaddi minkal jaddu.</p>\n" +
-        " <h1 class=\" bg_shadow\">[33] اَللهُ أَكْبَرُ [33] | اَلْحَمْدُ لِلَّهِِِ [33] | سُبْحَانَ اللهِِ</h1>\n" +
+        " <h2 class=\" bg_shadow\">[33] اَللهُ أَكْبَرُ [33] | اَلْحَمْدُ لِلَّهِِِ [33] | سُبْحَانَ اللهِِ</h2>\n" +
         "                                    <p class=\"lead bg_shadow\"> Allahu akbar (33 x) | Al hamdulillah (33x) | Subhanallah (33x)</p>\n" +
-        " <h1 class=\" bg_shadow\">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُِِ</h1>\n" +
+        " <h2 class=\" bg_shadow\">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُِِ</h2>\n" +
         "                                    <p class=\"lead bg_shadow\">Laa ilaha illallah wahdahu laa syarika lah. Lahul mulku wa lahul hamdu wa huwa ‘ala kulli syai-in qodiir.</p>\n" +
         "                            </div>";
 
@@ -368,6 +350,7 @@ function timer() {
 
 // Button On
 var onButtonDown = function(index){
+    console.log(index);
     if((index === 7) || (index === 8)){
         TurnoOn();
     }

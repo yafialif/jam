@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f664239-0894-4dbf-8e38-6be61aaff5e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/jam/skin1/countdown/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/jam/skin1/countdown/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/jam/skin1/jam/CustomJam.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/jam/skin1/jam/CustomJam.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/jam/skin1/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jam/skin1/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/jam/skin1/jam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jam/skin1/jam.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/jam/skin1/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="267" column="23" selection-start-line="267" selection-start-column="23" selection-end-line="267" selection-end-column="23" />
+            <state relative-caret-position="3019">
+              <caret line="275" column="9" lean-forward="true" selection-start-line="275" selection-start-column="9" selection-end-line="275" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -44,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomJam.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CustomJam.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/jam/skin1/jam/CustomJam.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="378" column="54" lean-forward="true" selection-start-line="378" selection-start-column="4" selection-end-line="378" selection-end-column="54" />
+            <state relative-caret-position="143">
+              <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -98,6 +93,15 @@
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/jam/skin1/gamepad/js/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/jam/skin1/countdown/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="229">
@@ -127,8 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>theme</find>
-      <find>w3-dark-grey</find>
       <find>page</find>
       <find>background-color: rgba(47, 53, 66,0.7)</find>
       <find>p</find>
@@ -155,8 +157,10 @@
       <find>setelah_adzan</find>
       <find>modal</find>
       <find>countdowntime</find>
-      <find>empty</find>
       <find>timer</find>
+      <find>getslider1</find>
+      <find>onButtonDown</find>
+      <find>empty</find>
     </findStrings>
     <replaceStrings>
       <replace>$</replace>
@@ -188,7 +192,6 @@
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PrayTimeController.php" />
         <option value="$PROJECT_DIR$/public/jam/skin1/typed/typed.js" />
-        <option value="$PROJECT_DIR$/public/jam/skin1/gamepad/js/index.js" />
         <option value="$PROJECT_DIR$/resources/views/absensi/finish.blade.php" />
         <option value="$PROJECT_DIR$/app/Rfid.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/CreateJamaahRequest.php" />
@@ -230,9 +233,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/JamController.php" />
         <option value="$PROJECT_DIR$/resources/views/jam/skin1/jam.blade.php" />
         <option value="$PROJECT_DIR$/config/view.php" />
-        <option value="$PROJECT_DIR$/public/jam/skin1/jam/CustomJam.js" />
         <option value="$PROJECT_DIR$/public/jam/skin1/countdown/js/index.js" />
         <option value="$PROJECT_DIR$/resources/views/jam/skin1/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/jam/skin1/gamepad/js/index.js" />
+        <option value="$PROJECT_DIR$/public/jam/skin1/jam/CustomJam.js" />
       </list>
     </option>
   </component>
@@ -415,32 +419,6 @@
             <path>
               <item name="PrayTImeMasjid" type="b2602c69:ProjectViewProjectNode" />
               <item name="PrayTImeMasjid" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="jam" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="skin1" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="countdown" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PrayTImeMasjid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrayTImeMasjid" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="jam" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="skin1" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="countdown" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PrayTImeMasjid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrayTImeMasjid" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="jam" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="skin1" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="countdown" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="scss" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PrayTImeMasjid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrayTImeMasjid" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -448,21 +426,6 @@
               <item name="PrayTImeMasjid" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PrayTImeMasjid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrayTImeMasjid" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="jam" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PrayTImeMasjid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrayTImeMasjid" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="jam" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="skin1" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="PrayTImeMasjid" type="b2602c69:ProjectViewProjectNode" />
@@ -564,12 +527,12 @@
       <workItem from="1553045852656" duration="22650000" />
       <workItem from="1553435636651" duration="37680000" />
       <workItem from="1514794727716" duration="2023000" />
-      <workItem from="1554087832736" duration="166343000" />
+      <workItem from="1554087832736" duration="169670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="381111000" />
+    <option name="totallyTimeSpent" value="384438000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="733" extended-state="6" />
@@ -604,13 +567,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
@@ -942,6 +898,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/jam/skin1/countdown/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JamController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -952,17 +915,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/jam/skin1/countdown/js/index.js">
+    <entry file="file://$PROJECT_DIR$/public/jam/skin1/gamepad/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+        <state relative-caret-position="578">
+          <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/jam/skin1/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3019">
+          <caret line="275" column="9" lean-forward="true" selection-start-line="275" selection-start-column="9" selection-end-line="275" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/jam/skin1/jam/CustomJam.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="378" column="54" lean-forward="true" selection-start-line="378" selection-start-column="4" selection-end-line="378" selection-end-column="54" />
+        <state relative-caret-position="143">
+          <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -972,17 +946,6 @@
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/jam/skin1/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="267" column="23" selection-start-line="267" selection-start-column="23" selection-end-line="267" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
