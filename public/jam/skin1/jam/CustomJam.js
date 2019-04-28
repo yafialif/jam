@@ -64,7 +64,7 @@ $(document).ready(function() {
         document.getElementById("maghrib").innerHTML = times.maghrib;
         document.getElementById("isya").innerHTML = times.isha;
 
-        var time = moment().subtract(4,'minutes').format('HH:mm');
+        var time = moment().subtract(5,'minutes').format('HH:mm');
         var time2 = moment().format('HH:mm');
         // var time3 = moment().subtract(12,'minutes').format('HH:mm');
         if(time <= times.fajr){
