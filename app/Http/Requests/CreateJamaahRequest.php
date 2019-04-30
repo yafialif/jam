@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class CreateJamaahRequest extends FormRequest {
 
 	/**
@@ -32,4 +33,10 @@ class CreateJamaahRequest extends FormRequest {
             'uid' => 'unique:rfid,uid'.$this->get,
 		];
 	}
+    public function messages()
+    {
+        return [
+            'tlpn.unique' => 'Nomor Telpon sudah terdaftar',
+        ];
+    }
 }

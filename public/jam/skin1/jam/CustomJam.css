@@ -197,6 +197,15 @@ html.modal-active, body.modal-active {
 h2{
     font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serifss;
 }
+.arab-1{
+    font-size: 1rem;
+}
+.arab-2{
+    font-size: 50px;
+}
+.arab-3{
+    font-size: 3rem;
+}
 p{
 
 }

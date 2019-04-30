@@ -45,7 +45,10 @@ var Countdown = {
             $sec_1  = this.$.seconds.eq(0),
             $sec_2  = this.$.seconds.eq(1);
 
-        this.countdown_interval = setInterval(function() {
+        var countdown_on = setInterval(countdown_start, 1000);
+
+        function countdown_start() {
+
 
             if(that.total_seconds > 0) {
 
@@ -78,6 +81,7 @@ var Countdown = {
             else {
                 clearInterval(that.countdown_interval);
                 LurusRapat();
+                clearInterval(countdown_on);
                 if(turnoff_aktif === 1){
                     setTimeout(function(){
                         toggleSwitcherTV();
@@ -101,7 +105,12 @@ var Countdown = {
 
 
             }
-        }, 1000);
+        }
+
+        this.countdown_interval = countdown_on;
+        //
+        //     setInterval(function() {
+        // }, 1000);
     },
 
     animateFigure: function($el, value) {

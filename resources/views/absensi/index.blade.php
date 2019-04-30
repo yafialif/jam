@@ -72,6 +72,15 @@
                             <div class="col-sm-12">
                                 <!-- Form wizard with validation card start -->
                                 <!-- Verticle Wizard card start -->
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="card">
                                     <div class="card-header" style=" background: url('{{asset('/images/masjid.jpg')}}')no-repeat center center ;
                                         -webkit-background-size: cover;

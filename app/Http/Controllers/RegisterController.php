@@ -8,6 +8,8 @@ use App\Rfid;
 use App\Http\Requests\CreateJamaahRequest;
 use Schema;
 use App\Http\Controllers\Traits\ImageUpload;
+use App\Http\Requests\RegisterRequest;
+
 
 
 class RegisterController extends Controller
@@ -21,9 +23,21 @@ class RegisterController extends Controller
     }
 
     public function store(Jamaah $jamaah, ImageUpload $imageUpload, CreateJamaahRequest $request){
-        $request = $imageUpload->saveImage($request);
+
+        $name = $request->name;
+        $tlpn = $request->tlpn;
+
+        $status = Jamaah::where('tlpn','=',$tlpn)->where('name','=', $name)->count();
+
+        if($status >= 1){
+            return back()->withErrors(['Sudah Terdaftar', 'Nama '.$name.' dan Nomor telepon '.$tlpn.' Sudah terdaftar']);
+        }
+        else{
+            $request = $imageUpload->saveImage($request);
         $jamaah = $jamaah->InsertData($request);
         return view('absensi.selesai');
+        }
+
 
     }
     public function simpan(Request $request, Jamaah $jamaah, Rfid $rfid ){

@@ -68,7 +68,6 @@ body .announcements-container ul.announcements li {
     white-space: nowrap;
     text-overflow: ellipsis;
     font-family:'BebasNeueRegular', Arial, Helvetica, sans-serif;
-    text-shadow:0 0 5px #00c6ff;
     color: #FFFFFF;
 }
 .border{
@@ -111,10 +110,10 @@ body{
 }
 .clock {margin:0 auto; border:1px solid #333; color:#fff; }
 
-#Date { font-family:'BebasNeueRegular', Arial, Helvetica, sans-serif; font-size:30px; text-align:center; text-shadow:0 0 5px #00c6ff; }
+#Date { font-family:'BebasNeueRegular', Arial, Helvetica, sans-serif; font-size:30px; text-align:center; }
 
 .jam-top {  margin:0 auto; padding:0px; list-style:none; text-align:center; }
-.jam { display:inline; font-size:4em; text-align:center; font-family:'BebasNeueRegular', Arial, Helvetica, sans-serif; text-shadow:0 0 5px #00c6ff; }
+.jam { display:inline; font-size:4em; text-align:center; font-family:'BebasNeueRegular', Arial, Helvetica, sans-serif; }
 
 #point { position:relative; -moz-animation:mymove 1s ease infinite; -webkit-animation:mymove 1s ease infinite;  }
 

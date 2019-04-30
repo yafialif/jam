@@ -39,7 +39,7 @@
   margin: auto;
   font: normal 5.94em/107px "Lato";
   font-weight: 700;
-  color: #de4848;
+  color: #111111;
 }
 .countdown .figure .top:after, .countdown .figure .bottom-back:after {
   content: "";
