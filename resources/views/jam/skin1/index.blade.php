@@ -65,7 +65,7 @@
                     <div id="slide-1" class="carousel slide rounded " data-ride="carousel">
                         <div class="carousel-inner carousel-fade rounded" role="listbox">
                             <!-- Slide One - Set the background image for this slide in the line below -->
-                            <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.7)">
+                            <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.9)">
                                 <div id="calendar" ></div>
                             </div>
                             @foreach($slider1 as $row1)
@@ -85,7 +85,7 @@
                             <!-- Slide One - Set the background image for this slide in the line below -->
                             @foreach($slider2 as $row)
                             @if($row->category === 'video' )
-                            <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
+                            <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.9); text-align: center;">
                                 <video autoplay loop id="video-background" muted>
                                     <source src="{{ asset('/uploads').'/'.$row->file }}" type="video/mp4">
                                 </video>
@@ -97,7 +97,7 @@
                                 {{--</video>--}}
                             </div>
                             @else
-                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.7); text-align: center;">
+                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.9); text-align: center;">
                                 <label class="badge p-1 mt-3" style="color: white;"><h2 class="">{{ $row->title }}</h2></label>
                                 <div class="carousel-caption d-none d-md-block">
                                     {{--<img class="img-responsive" width="170px" src="{{ asset('/images/pray.png') }}">--}}
@@ -109,7 +109,7 @@
                             @endif
                             @endforeach
                             <!-- Slide Two - Set the background image for this slide in the line below -->
-                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
+                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.9); text-align: center;">
                                 <label class="badge p-1 mt-3"><h2 class="">DOA MOHON PERLINDUNGAN DARI GODAAN SETAN</h2></label>
                                 <div class="carousel-caption d-none d-md-block">
                                     <h2 class="display-4 ">أَعُوْذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ</h2>
@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                             <!-- Slide Three - Set the background image for this slide in the line below -->
-                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
+                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.9); text-align: center;">
                                 <label class="badge p-1 mt-3"><h2 class="">DO'A MEMINTA ILMU YANG BERMANFAAT</h2></label>
                                 <div class="carousel-caption d-none d-md-block">
                                     <h2 class="display-4 ">اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلاً مُتَقَبَّلاً</h2>
@@ -130,7 +130,7 @@
             </div>
         </div>
     </div>
-    <div class="row rounded fixed-bottom" style="margin: 5px; background-color: rgba(52, 73, 94,0.6);">
+    <div class="row rounded fixed-bottom" style="margin: 5px; background-color: rgba(52, 73, 94,0.7);">
         <div id="bg_subuh" class="col-md-2 waktu rounded ">
             <h4><span class="badge d-block badge-success ">SUBUH</span></h4>
             <h1 class="font-weight-bold text-white text-center " id="subuh">00:00</h1>

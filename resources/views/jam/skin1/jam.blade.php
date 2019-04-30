@@ -53,7 +53,7 @@
         </div>
         <div class="col-md-8 pt-4 text-white">
             <center>
-                <h1 style="font-size: 50px; letter-spacing: 5px; font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;" class="bg_shadow text-uppercase">{{ $jamsetting[0]->namemosque }} </h1>
+                <h1 style="font-size: 50px; letter-spacing: 5px; font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;" class=" text-uppercase">{{ $jamsetting[0]->namemosque }} </h1>
             </center>
         </div>
         <div class="content" style="display: none">
@@ -65,14 +65,14 @@
                     <div id="slide-1" class="carousel slide rounded " data-ride="carousel">
                         <div class="carousel-inner carousel-fade rounded" role="listbox">
                             <!-- Slide One - Set the background image for this slide in the line below -->
-                            <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.7)">
+                            <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.9)">
                                 <div id="calendar" ></div>
                             </div>
                             @foreach($slider1 as $row1)
                                 <div class="carousel-item" style="background-image: url('{{ asset('uploads/').'/'.$row1->image }}'); background-size: contain; ">
                          <div class="carousel-caption d-none d-md-block">
-                         <h2 class="display-4 bg_shadow"></h2>
-                         <p class="lead bg_shadow"></p>
+                         <h2 class="display-4 "></h2>
+                         <p class="lead "></p>
                         </div>
                         </div>
                             @endforeach
@@ -87,7 +87,7 @@
                             <!-- Slide One - Set the background image for this slide in the line below -->
                             @foreach($slider2 as $row)
                                 @if($row->category === 'video' )
-                                    <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
+                                    <div class="carousel-item active" style="background-color: rgba(47, 53, 66,0.9); text-align: center;">
                                         <video autoplay loop id="video-background" muted>
                                             <source src="{{ asset('/uploads').'/'.$row->file }}" type="video/mp4">
                                         </video>
@@ -99,31 +99,31 @@
                                         {{--</video>--}}
                                     </div>
                                 @else
-                                    <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.7); text-align: center;">
-                                        <label class="badge p-1 mt-3" style="color: white;"><h2 class="bg_shadow">{{ $row->title }}</h2></label>
+                                    <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.9); text-align: center;">
+                                        <label class="badge p-1 mt-3" style="color: white;"><h2 class="">{{ $row->title }}</h2></label>
                                         <div class="carousel-caption d-none d-md-block">
                                             {{--<img class="img-responsive" width="170px" src="{{ asset('/images/pray.png') }}">--}}
-                                            <h2 class="display-4 bg_shadow">{{ $row->arab }}</h2>
-                                            <p class="lead bg_shadow">"{{ $row->terjemah }}"</p>
-                                            <p class="lead bg_shadow text-c-blue">"{{ $row->riwayat }}"</p>
+                                            <h2 class="display-4 ">{{ $row->arab }}</h2>
+                                            <p class="lead ">"{{ $row->terjemah }}"</p>
+                                            <p class="lead  text-c-blue">"{{ $row->riwayat }}"</p>
                                         </div>
                                     </div>
                             @endif
                         @endforeach
                         <!-- Slide Two - Set the background image for this slide in the line below -->
-                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
-                                <label class="badge p-1 mt-3"><h2 class="bg_shadow">DOA MOHON PERLINDUNGAN DARI GODAAN SETAN</h2></label>
+                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.9); text-align: center;">
+                                <label class="badge p-1 mt-3"><h2 class="">DOA MOHON PERLINDUNGAN DARI GODAAN SETAN</h2></label>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h2 class="display-4 bg_shadow">أَعُوْذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ</h2>
-                                    <p class="lead bg_shadow">"Aku berlindung kepada Allah dari godaan syaitan yang terkutuk."</p>
+                                    <h2 class="display-4 ">أَعُوْذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ</h2>
+                                    <p class="lead ">"Aku berlindung kepada Allah dari godaan syaitan yang terkutuk."</p>
                                 </div>
                             </div>
                             <!-- Slide Three - Set the background image for this slide in the line below -->
-                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.8); text-align: center;">
-                                <label class="badge p-1 mt-3"><h2 class="bg_shadow">DO'A MEMINTA ILMU YANG BERMANFAAT</h2></label>
+                            <div class="carousel-item" style="background-color: rgba(47, 53, 66,0.9); text-align: center;">
+                                <label class="badge p-1 mt-3"><h2 class="">DO'A MEMINTA ILMU YANG BERMANFAAT</h2></label>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h2 class="display-4 bg_shadow">اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلاً مُتَقَبَّلاً</h2>
-                                    <p class="lead bg_shadow">“Ya Allah, sungguh aku memohon kepada-Mu ilmu yang bermanfaat (bagi diriku dan orang lain), rizki yang halal dan amal yang diterima (di sisi-Mu dan mendapatkan ganjaran yang baik).”</p>
+                                    <h2 class="display-4 ">اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلاً مُتَقَبَّلاً</h2>
+                                    <p class="lead ">“Ya Allah, sungguh aku memohon kepada-Mu ilmu yang bermanfaat (bagi diriku dan orang lain), rizki yang halal dan amal yang diterima (di sisi-Mu dan mendapatkan ganjaran yang baik).”</p>
                                 </div>
                             </div>
                         </div>
@@ -132,30 +132,30 @@
             </div>
         </div>
     </div>
-    <div class="row rounded fixed-bottom" style="margin: 5px; background-color: rgba(52, 73, 94,0.6);">
-        <div id="bg_subuh" class="col-md-2 waktu rounded bg_shadow">
-            <h4><span class="badge d-block badge-success bg_shadow">SUBUH</span></h4>
-            <h1 class="font-weight-bold text-white text-center bg_shadow" id="subuh">00:00</h1>
+    <div class="row rounded fixed-bottom" style="margin: 5px; background-color: rgba(52, 73, 94,0.7);">
+        <div id="bg_subuh" class="col-md-2 waktu rounded ">
+            <h4><span class="badge d-block badge-success ">SUBUH</span></h4>
+            <h1 class="font-weight-bold text-white text-center " id="subuh">00:00</h1>
         </div>
         <div id="bg_syuruq" class="col-md-2 waktu rounded">
-            <h4><span class="badge d-block badge-success bg_shadow">SYURUQ</span> </h4>
-            <h1 class="font-weight-bold text-white text-center bg_shadow" id="syuruq">00:00</h1>
+            <h4><span class="badge d-block badge-success ">SYURUQ</span> </h4>
+            <h1 class="font-weight-bold text-white text-center " id="syuruq">00:00</h1>
         </div>
-        <div id="bg_dzuhur" class="col-md-2  waktu rounded bg_shadow">
-            <h4><span class="badge d-block badge-success bg_shadow">DZUHUR</span> </h4>
-            <h1 class="font-weight-bold text-white text-center bg_shadow" id="dzuhur">00:00</h1>
+        <div id="bg_dzuhur" class="col-md-2  waktu rounded ">
+            <h4><span class="badge d-block badge-success ">DZUHUR</span> </h4>
+            <h1 class="font-weight-bold text-white text-center " id="dzuhur">00:00</h1>
         </div>
-        <div id="bg_ashar" class="col-md-2 waktu rounded bg_shadow">
-            <h4> <span class="badge d-block badge-success bg_shadow">ASHAR</span> </h4>
-            <h1 class="font-weight-bold text-white text-center bg_shadow" id="ashar">00:00</h1>
+        <div id="bg_ashar" class="col-md-2 waktu rounded ">
+            <h4> <span class="badge d-block badge-success ">ASHAR</span> </h4>
+            <h1 class="font-weight-bold text-white text-center " id="ashar">00:00</h1>
         </div>
-        <div id="bg_maghrib" class="col-md-2 waktu rounded bg_shadow">
-            <h4> <span class="badge badge-success d-block bg_shadow">MAGHRIB</span> </h4>
-            <h1 class="font-weight-bold text-white text-center bg_shadow" id="maghrib">00:00</h1>
+        <div id="bg_maghrib" class="col-md-2 waktu rounded ">
+            <h4> <span class="badge badge-success d-block ">MAGHRIB</span> </h4>
+            <h1 class="font-weight-bold text-white text-center " id="maghrib">00:00</h1>
         </div>
-        <div id="bg_isya" class="col-md-2 waktu rounded bg_shadow">
-            <h4><span class="badge  d-block badge-success bg_shadow">ISYA</span> </h4>
-            <h1 class="font-weight-bold text-white text-center bg_shadow" id="isya">00:00</h1>
+        <div id="bg_isya" class="col-md-2 waktu rounded ">
+            <h4><span class="badge  d-block badge-success ">ISYA</span> </h4>
+            <h1 class="font-weight-bold text-white text-center " id="isya">00:00</h1>
         </div>
         <div class="row">
             <div class="col-md-12  pt-2">
@@ -185,7 +185,7 @@
                 </ul>
                 <div class="row" id="countdowntime">
                     <div class="countdown pt-3 pb-3"  >
-                        <h2 class="bg-secondary border bg_shadow">MENUJU IQOMAH</h2></label>
+                        <h2 class="bg-secondary border ">MENUJU IQOMAH</h2></label>
                         <div class="bloc-time min" data-init-value="0">
                             <div class="figure min min-1">
                                 <span class="top">0</span>
