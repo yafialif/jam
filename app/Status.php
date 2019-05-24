@@ -10,19 +10,21 @@ use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
 class Status extends Model {
 
-    
 
-    
+
+
 
     protected $table    = 'status';
-    
+
     protected $fillable = [
           'rfid_id',
           'saur',
           'buka',
+        'saur_p',
+          'buka_p',
           'itikaf'
     ];
-    
+
     public static $saur = ["" => ""];
     public static $buka = ["" => ""];
     public static $itikaf = ["" => ""];
@@ -34,14 +36,14 @@ class Status extends Model {
 
         Status::observe(new UserActionsObserver);
     }
-    
+
     public function rfid()
     {
         return $this->hasOne('App\Rfid', 'id', 'rfid_id');
     }
 
 
-    
-    
-    
+
+
+
 }

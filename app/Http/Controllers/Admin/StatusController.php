@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Rfid;
+use App\Jamaah;
 
 
 class StatusController extends Controller {
@@ -26,11 +27,13 @@ class StatusController extends Controller {
 	public function index(Request $request)
     {
 //        $status = Status::with("rfid")->get();
-        $status = Status::select(DB::raw('sum(saur) AS saur, sum(buka) AS buka, sum(itikaf) AS itikaf, DATE(created_at) AS date'))
-            ->groupBy(DB::raw('DATE(created_at)'))
+        $status = Status::select(DB::raw('sum(saur) AS saur, sum(buka) AS buka, sum(saur_p) AS saur_p, sum(buka_p) AS buka_p, sum(itikaf) AS itikaf, DATE(created_at) AS date'))
+            ->groupBy(DB::raw('DATE(created_at)'))->orderBy('created_at','DESC')
             ->get();
+        $jamaah = Jamaah::select(DB::raw('count(saur) AS saur, sum(buka) AS buka, sum(saur_p'))->all();
 
-		return view('admin.status.index', compact('status'));
+
+		return view('admin.status.index', compact('status','jamaah'));
 	}
 
 	/**

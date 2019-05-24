@@ -73,11 +73,7 @@ $(document).ready(function() {
             $("#bg_subuh").removeClass("jamactive");
             $("#bg_syuruq").addClass("jamactive");
             $("#subuh").removeClass("textactive");
-            // console.log('syuruq1');
-            // if(time3 === times.fajr){
-            //     // console.log('off');
-            //     toggleSwitcherTV();
-            // }
+
             if(time2 >= times.sunrise){
                 $("#syuruq").addClass("textactive");
                 // console.log('syuruq');
@@ -103,10 +99,7 @@ $(document).ready(function() {
             $("#bg_dzuhur").removeClass("jamactive");
             $("#bg_ashar").addClass("jamactive");
             $("#dzuhur").removeClass("textactive");
-            // if(time3 === times.dhuhr){
-            //     toggleSwitcherTV();
-            //     // console.log('off');
-            // }
+
             if(time2 >= times.asr){
                 $("#ashar").addClass("textactive");
                 // console.log('ashar');
@@ -121,10 +114,7 @@ $(document).ready(function() {
             $("#bg_ashar").removeClass("jamactive");
             $("#bg_maghrib").addClass("jamactive");
             $("#ashar").removeClass("textactive");
-            // if(time3 === times.asr){
-            //     toggleSwitcherTV();
-            //     // console.log('off');
-            // }
+
             if(time2 >= times.maghrib){
                 $("#maghrib").addClass("textactive");
                 // console.log('maghrib');
@@ -139,10 +129,7 @@ $(document).ready(function() {
             $("#bg_maghrib").removeClass("jamactive");
             $("#bg_isya").addClass("jamactive");
             $("#maghrib").removeClass("textactive");
-            // if(time3 === times.maghrib){
-            //     toggleSwitcherTV();
-            //     // console.log('off');
-            // }
+
             if(time2 >= times.isha){
                 $("#isya").addClass("textactive");
                 // console.log('isya');
@@ -154,10 +141,7 @@ $(document).ready(function() {
             }
         }
         else if(time > times.isha){
-            // if(time3 === times.isha){
-            //     // console.log('off');
-            //     toggleSwitcherTV();
-            // }
+
             $("#bg_isya").removeClass("jamactive");
             $("#bg_subuh").addClass("jamactive");
             $("#isya").removeClass("textactive");
@@ -216,8 +200,7 @@ function show_modal() {
 }
 function hide_modal(){
     $('#modal-container').addClass('out');
-    // console.log('delay')
-    // $('body').delay(40000).removeClass('modal-active');
+
 }
 //doa adzan slider pertaama setelah popup
 function doa_adzan(){
@@ -266,19 +249,53 @@ function LurusRapat(){
 }
 //doa setelah shalat di popup modal
 function DoaSetelahShalat(){
-    document.getElementById("caraosel-2").innerHTML = " <div class=\"carousel-item active pt-3 pb-3 \" style=\"background-color: rgba(47, 53, 66,0.9); text-align: center; height: 100vh;\">\n" +
-        "                                    <label class=\"badge p-2 mt-3\"><h2 class=\"\">DZIKIR SETELAH SHALAT</h2></label>\n" +
-        " <h2 class=\" \">أَسْتَغْفِرُ اللهَ ِ</h2>\n" +
-        "                                    <p class=\"lead \">Astagh-firullah 3x</p>\n" +
-        "                                    <h2 class=\" \">اَللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَاْلإِكْرَامِ</h2>\n" +
-        "                                    <p class=\"lead \">Allahumma antas salaam wa minkas salaam tabaarokta yaa dzal jalaali wal ikrom.</p>\n" +
-        "                                    <h2 class=\" \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ، اَللَّهُمَّ لاَ مَانِعَ لِمَا أَعْطَيْتَ، وَلاَ مُعْطِيَ لِمَا مَنَعْتَ، وَلاَ يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُِّ</h2>\n" +
-        "                                    <p class=\"lead \">Laa ilaha illallah wahdahu laa syarika lah, lahul mulku wa lahul hamdu wa huwa ‘ala kulli syai-in qodiir. Allahumma laa maani’a limaa a’thoyta wa laa mu’thiya limaa mana’ta wa laa yanfa’u dzal jaddi minkal jaddu.</p>\n" +
-        " <h2 class=\" \">[33] اَللهُ أَكْبَرُ [33] | اَلْحَمْدُ لِلَّهِِِ [33] | سُبْحَانَ اللهِِ</h2>\n" +
-        "                                    <p class=\"lead \"> Allahu akbar (33 x) | Al hamdulillah (33x) | Subhanallah (33x)</p>\n" +
-        " <h2 class=\" \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُِِ</h2>\n" +
-        "                                    <p class=\"lead \">Laa ilaha illallah wahdahu laa syarika lah. Lahul mulku wa lahul hamdu wa huwa ‘ala kulli syai-in qodiir.</p>\n" +
-        "                            </div>";
+    var waktu = moment().format('HH:mm');
+    var fajr = $('#subuh').textContent;
+    var sunrise = $('#syuruq').textContent;
+    var maghrib = $('#maghrib').textContent;
+    var isha = $('#isya').textContent;
+    console.log(fajr);
+    if(waktu > fajr && waktu < sunrise){
+        document.getElementById("caraosel-2").innerHTML = " <div class=\"carousel-item active pt-3 pb-3 \" style=\"background-color: rgba(47, 53, 66,0.9); text-align: center; height: 100vh;\">\n" +
+            "                                    <label class=\"badge p-2 mt-3\"><h2 class=\"\">DZIKIR SETELAH SHALAT</h2></label>\n" +
+            " <h2 class=\"dzikir \">{3x} أَسْتَغْفِرُ اللهَِ</h2>\n" +
+            "                                    <h2 class=\"dzikir \">اَللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَاْلإِكْرَامِ </h2>\n" +
+            "                                    <h2 class=\"dzikir \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ، اَللَّهُمَّ لاَ مَانِعَ لِمَا أَعْطَيْتَ، وَلاَ مُعْطِيَ لِمَا مَنَعْتَ، وَلاَ يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُِّ </h2>\n" +
+            "                                    <h2 class=\"dzikir \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ. لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللهِ، لاَ إِلَـهَ إِلاَّ اللهُ، وَلاَ نَعْبُدُ إِلاَّ إِيَّاهُ، لَهُ النِّعْمَةُ وَلَهُ الْفَضْلُ وَلَهُ الثَّنَاءُ الْحَسَنُ، لاَ إِلَـهَ إِلاَّ اللهُ مُخْلِصِيْنَ لَهُ الدِّيْنَ وَلَوْ كَرِهَ الْكَافِرُوْنَ </h2>\n" +
+            " <h2 class=\"dzikir \">{33} سُبْحَانَ اللهِ {33} اَلْحَمْدُ لِلَّهِ {33} اللهُ أَكْبَرُ </h2>\n" +
+            " <h2 class=\"dzikir \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُِِ </h2>\n" +
+            " <h2 class=\" \">Membaca ayat Kursi</h2>\n" +
+            " <h2 class=\" \">Membaca surat Al-Ikhlas [3x], Al-Falaq [3X] dan An-Naas [3x]</h2>\n" +
+            " <h2 class=\"dzikir \">اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلاً مُتَقَبَّلاً </h2>\n" +
+            "                            </div>";
+    }
+    else if(waktu > maghrib && waktu < isha){
+        document.getElementById("caraosel-2").innerHTML = " <div class=\"carousel-item active pt-3 pb-3 \" style=\"background-color: rgba(47, 53, 66,0.9); text-align: center; height: 100vh;\">\n" +
+            "                                    <label class=\"badge p-2 mt-3\"><h2 class=\"\">DZIKIR SETELAH SHALAT</h2></label>\n" +
+            " <h2 class=\"dzikir \">{3x} أَسْتَغْفِرُ اللهَ</h2>\n" +
+            "                                    <h2 class=\"dzikir \">اَللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَاْلإِكْرَامِ</h2>\n" +
+            "                                    <h2 class=\"dzikir \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ، اَللَّهُمَّ لاَ مَانِعَ لِمَا أَعْطَيْتَ، وَلاَ مُعْطِيَ لِمَا مَنَعْتَ، وَلاَ يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُِّ</h2>\n" +
+            "                                    <h2 class=\"dzikir \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ. لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللهِ، لاَ إِلَـهَ إِلاَّ اللهُ، وَلاَ نَعْبُدُ إِلاَّ إِيَّاهُ، لَهُ النِّعْمَةُ وَلَهُ الْفَضْلُ وَلَهُ الثَّنَاءُ الْحَسَنُ، لاَ إِلَـهَ إِلاَّ اللهُ مُخْلِصِيْنَ لَهُ الدِّيْنَ وَلَوْ كَرِهَ الْكَافِرُوْنَ</h2>\n" +
+            " <h2 class=\"dzikir \">{33} سُبْحَانَ اللهِ {33} اَلْحَمْدُ لِلَّهِ {33} اللهُ أَكْبَرُ *</h2>\n" +
+            " <h2 class=\"dzikir \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُِِ *</h2>\n" +
+            " <h2 class=\" \">Membaca ayat Kursi</h2>\n" +
+            " <h2 class=\" \">Membaca surat Al-Ikhlas [3x], Al-Falaq [3X] dan An-Naas [3x]</h2>\n" +
+            "                            </div>";
+    }
+    else{
+        document.getElementById("caraosel-2").innerHTML = "<div class=\"carousel-item active pt-3 pb-3 \" style=\"background-color: rgba(47, 53, 66,0.9); text-align: center; height: 100vh;\">\n" +
+            "                                    <label class=\"badge p-2 mt-3\"><h2 class=\"\">DZIKIR SETELAH SHALAT</h2></label>\n" +
+            " <h2 class=\"dzikir \">{3x} أَسْتَغْفِرُ اللهَ</h2>\n" +
+            "                                    <h2 class=\"dzikir \">اَللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَاْلإِكْرَامِ </h2>\n" +
+            "                                    <h2 class=\"dzikir \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ، اَللَّهُمَّ لاَ مَانِعَ لِمَا أَعْطَيْتَ، وَلاَ مُعْطِيَ لِمَا مَنَعْتَ، وَلاَ يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُِّ </h2>\n" +
+            "                                    <h2 class=\"dzikir \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ. لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللهِ، لاَ إِلَـهَ إِلاَّ اللهُ، وَلاَ نَعْبُدُ إِلاَّ إِيَّاهُ، لَهُ النِّعْمَةُ وَلَهُ الْفَضْلُ وَلَهُ الثَّنَاءُ الْحَسَنُ، لاَ إِلَـهَ إِلاَّ اللهُ مُخْلِصِيْنَ لَهُ الدِّيْنَ وَلَوْ كَرِهَ الْكَافِرُوْنَ </h2>\n" +
+            " <h2 class=\"dzikir \">{33} سُبْحَانَ اللهِ {33} اَلْحَمْدُ لِلَّهِ {33} اللهُ أَكْبَرُ *</h2>\n" +
+            " <h2 class=\"dzikir \">لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُِِ *</h2>\n" +
+            " <h2 class=\" \">Membaca ayat Kursi</h2>\n" +
+            " <h2 class=\" \">Membaca surat Al-Ikhlas [1x], Al-Falaq [1X] dan An-Naas [1x] </h2>\n" +
+            "                            </div>";
+    }
+
 
 }
 //Power Off

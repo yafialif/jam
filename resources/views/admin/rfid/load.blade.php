@@ -1,5 +1,5 @@
-<div class="table-responsive dt-responsive"  id="table_data">
-    <table class="table table-striped table-bordered nowrap datatable" id="datatable" >
+<div class="table-responsive dt-responsive">
+    <table class="table table-striped table-bordered nowrap datatable" id="datatable">
         <thead>
         <tr>
             <th>

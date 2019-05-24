@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Redirect;
 use Schema;
 use App\Jamaah;
+use App\Status;
 use App\Rfid;
 use App\Http\Requests\CreateJamaahRequest;
 use App\Http\Requests\UpdateJamaahRequest;
@@ -24,18 +25,19 @@ class JamaahController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $jamaah = Jamaah::latest('created_at')->paginate(5);
+        $jamaah = Jamaah::latest('created_at')->get();
 
 		return view('admin.jamaah.index', compact('jamaah'));
 	}
 
 	public function search(Request $request){
 	    $search = $request->search;
-        $jamaah = Jamaah::where('name','=',$search)
-            ->orWhere('')
-            ->join('rfid','jamaah.id','jamaah.jamaah_id')
+	    $uid = $request->search;
+        $datauid = dechex($uid);
+        $jamaah = Jamaah::Where('rfid.uid','=',$datauid)
+            ->join('rfid','jamaah.id','rfid.jamaah_id')
             ->get();
-	    return $request->search;
+        return view('admin.jamaah.index', compact('jamaah'))->render();
 
     }
 
@@ -72,7 +74,9 @@ class JamaahController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$jamaah = Jamaah::find($id);
+		$jamaah = Jamaah::select('jamaah.id','jamaah.name','jamaah.image','jamaah.tlpn','jamaah.jenis_kelamin','jamaah.alamat','jamaah.kategori','jamaah.tlpn_saudara','jamaah.tgl_lahir','rfid.uid')
+            ->where('jamaah.id','=',$id)
+            ->join('rfid','jamaah.id','=','rfid.jamaah_id')->get();
 
 
 		return view('admin.jamaah.edit', compact('jamaah'));
@@ -102,6 +106,7 @@ class JamaahController extends Controller {
 	 */
 	public function destroy($id)
 	{
+
 		Jamaah::destroy($id);
 
 		return redirect()->route(config('quickadmin.route').'.jamaah.index');

@@ -24,8 +24,8 @@ var Countdown = {
             //  minutes: this.$.minutes.parent().attr('data-init-value'),
             //  seconds: this.$.seconds.parent().attr('data-init-value'),
             hours  : 0,
-            minutes: time_countdown,
-            seconds: 0,
+            minutes: 1,
+            seconds: 10,
         };
 
         // Initialize total seconds

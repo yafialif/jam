@@ -22,24 +22,24 @@
                     </div>
                 </div>
 
-                {!! Form::model($jamaah, array('files' => true, 'class' => 'form-horizontal', 'id' => 'form-with-validation', 'method' => 'PATCH', 'route' => array(config('quickadmin.route').'.jamaah.update', $jamaah->id))) !!}
+                {!! Form::model($jamaah, array('files' => true, 'class' => 'form-horizontal', 'id' => 'form-with-validation', 'method' => 'PATCH', 'route' => array(config('quickadmin.route').'.jamaah.update', $jamaah[0]->id))) !!}
 
                 <div class="form-group">
                     {!! Form::label('name', 'Nama*', array('class'=>'col-sm-2 control-label')) !!}
                     <div class="col-sm-10">
-                        {!! Form::text('name', old('name',$jamaah->name), array('class'=>'form-control')) !!}
+                        {!! Form::text('name', old('name',$jamaah[0]->name), array('class'=>'form-control')) !!}
 
                     </div>
                 </div><div class="form-group">
                     {!! Form::label('tlpn', 'tlpn*', array('class'=>'col-sm-2 control-label')) !!}
                     <div class="col-sm-10">
-                        {!! Form::text('tlpn', old('tlpn',$jamaah->tlpn), array('class'=>'form-control')) !!}
+                        {!! Form::text('tlpn', old('tlpn',$jamaah[0]->tlpn), array('class'=>'form-control')) !!}
 
                     </div>
                 </div><div class="form-group">
                     {!! Form::label('jenis_kelamin', 'Jenis Kelamin*', array('class'=>'col-sm-2 control-label')) !!}
                     <div class="col-sm-10">
-                        {!! Form::text('jenis_kelamin', old('jenis_kelamin',$jamaah->jenis_kelamin), array('class'=>'form-control')) !!}
+                        {!! Form::text('jenis_kelamin', old('jenis_kelamin',$jamaah[0]->jenis_kelamin), array('class'=>'form-control')) !!}
 
                     </div>
                 </div><div class="form-group">
@@ -51,6 +51,14 @@
 
                     </div>
                 </div>
+                <div class="form-group">
+                    {!! Form::label('UID', 'RFID*', array('class'=>'col-sm-2 control-label')) !!}
+                    <div class="col-sm-10">
+                        {!! Form::text('uid', old('uid',hexdec($jamaah[0]->uid)), array('class'=>'form-control')) !!}
+
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">

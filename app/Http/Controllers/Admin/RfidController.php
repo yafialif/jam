@@ -22,12 +22,22 @@ class RfidController extends Controller {
      *
      * @return \Illuminate\View\View
 	 */
-	public function index(Request $request)
+    public function index(Request $request)
     {
-        $rfid = Rfid::with("jamaah")->get();
+        $jamaah = Jamaah::latest('created_at')->paginate(5);
 
-		return view('admin.rfid.index', compact('rfid'));
-	}
+        return view('admin.jamaah.index', compact('jamaah'));
+    }
+    public function search(Request $request){
+        $search = $request->search;
+        $uid = $request->search;
+        $datauid = dechex($uid);
+        $jamaah = Jamaah::Where('rfid.uid','=',$datauid)
+            ->join('rfid','jamaah.id','rfid.jamaah_id')
+            ->get();
+        return view('admin.rfid.index', compact('jamaah'))->render();
+
+    }
 
 	/**
 	 * Show the form for creating a new rfid
@@ -38,7 +48,7 @@ class RfidController extends Controller {
 	{
 	    $jamaah = Jamaah::pluck("name", "id")->prepend('Please select', null);
 
-	    
+
 	    return view('admin.rfid.create', compact("jamaah"));
 	}
 
@@ -49,7 +59,7 @@ class RfidController extends Controller {
 	 */
 	public function store(CreateRfidRequest $request)
 	{
-	    
+
 		Rfid::create($request->all());
 
 		return redirect()->route(config('quickadmin.route').'.rfid.index');
@@ -66,7 +76,7 @@ class RfidController extends Controller {
 		$rfid = Rfid::find($id);
 	    $jamaah = Jamaah::pluck("name", "id")->prepend('Please select', null);
 
-	    
+
 		return view('admin.rfid.edit', compact('rfid', "jamaah"));
 	}
 
@@ -80,7 +90,7 @@ class RfidController extends Controller {
 	{
 		$rfid = Rfid::findOrFail($id);
 
-        
+
 
 		$rfid->update($request->all());
 

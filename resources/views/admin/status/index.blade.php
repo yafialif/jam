@@ -14,6 +14,8 @@
                 @if ($status->count())
                     <div id="table_data">
                         <div class="table-responsive dt-responsive">
+                            <h3>Total Jamaah : {{ $jamaah }}</h3>
+                            <h4>Ikhwan : {{ $jamaah }}</h4>
                             <table class="table table-striped table-bordered nowrap datatable" id="datacetak">
                                 <thead>
                                 <tr>
@@ -21,9 +23,11 @@
                                         {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                                     </th>
                                     <th>Date</th>
-                                    <th>Sahur</th>
-                                    <th>Buka</th>
-                                    <th>Itikaf</th>
+                                    <th>Sahur_ikhwan</th>
+                                    <th>Buka_ikhwan</th>
+                                    <th>Sahur_akhowat</th>
+                                    <th>Buka_akhowat</th>
+                                    <th>Belum Absen</th>
                                 </tr>
                                 </thead>
                                 <tbody class="ustad">
@@ -35,7 +39,9 @@
                                         <td>{{ $row->date }}</td>
                                         <td>{{ $row->saur }}</td>
                                         <td>{{ $row->buka }}</td>
-                                        <td>{{ $row->itikaf }}</td>
+                                        <td>{{ $row->saur_p }}</td>
+                                        <td>{{ $row->buka_p }}</td>
+                                        <td>{{ $jamaah - $row->saur - $row->buka - $row->saur_p - $row->buka_p  }}</td>
                                        </tr>
                                 @endforeach
                                 </tbody>

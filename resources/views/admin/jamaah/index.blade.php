@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="sub-title">
                         {{ Form::open(array('action' => 'Admin\JamaahController@search', 'method' => 'post')) }}
-                        <input type="text" name="search" id="search" placeholder="email"> <button class="btn btn-mini btn-info" type="submit"><i class="fa fa-search"></i></i>Submit</button>
+                        <input type="text" name="search" id="search" placeholder="UID"> <button class="btn btn-mini btn-info" type="submit"><i class="fa fa-search"></i></i>Submit</button>
                         {{ Form::close() }}
                     </div>
                 </div>
@@ -40,7 +40,26 @@
     </div>
 @endsection
 @section('javascript')
+
+    <script src="{{ URL::asset('/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/jszip.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/pdfmake.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/vfs_fonts.js') }}"></script>
     <script>
+        $(document).ready(function () {
+            $('#datatable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            });
+        });
+
         $(document).ready(function () {
             $('#delete').click(function () {
                 if (window.confirm('{{ trans('quickadmin::templates.templates-view_index-are_you_sure') }}')) {
