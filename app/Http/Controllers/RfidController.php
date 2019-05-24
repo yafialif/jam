@@ -48,14 +48,14 @@ class RfidController extends Controller
                     if( $time_now >= $awal_sahur && $time_now <= $akhir_sahur){
                         $waktu = 'saur_p';
                         $insert = $this->insert_status($uid,$waktu);
-                        $insert = ['pesan'=>'Alhamdulillah '.$nama,'LED_PIN'=>2];
+                        $insert = ['pesan'=>'-Alhamdulillah- '.$nama,'LED_PIN'=>2];
                     }
                     // jika absen masuk waktu buka
                     else if( $time_now >= $awal_buka && $time_now <= $akhir_buka){
                         $waktu = 'buka_p';
                         $insert = $this->insert_status($uid,$waktu);
 
-                        $insert = ['pesan'=>'Alhamdulillah '.$nama,'LED_PIN'=>2];
+                        $insert = ['pesan'=>'-Alhamdulillah- '.$nama,'LED_PIN'=>2];
                     }
                     //jika belum masuk waktunya absen
                     else {
@@ -73,7 +73,7 @@ class RfidController extends Controller
                         if($status[0]->saur_p = 0){
                             $waktu = 'saur_p';
                             $update = $this->update_status($id,$waktu);
-                            $update = ['pesan'=>'Alhamdulillah '.$nama,'LED_PIN'=>2];
+                            $update = ['pesan'=>'-Alhamdulillah- '.$nama,'LED_PIN'=>2];
                         }
                         //data sudah ada
                         else{
@@ -86,7 +86,7 @@ class RfidController extends Controller
                         if($status[0]->buka_p = 0){
                             $waktu = 'buka_p';
                             $update = $this->update_status($id,$waktu);
-                            $update = ['pesan'=>'Alhamdulillah '.$nama,'LED_PIN'=>2];
+                            $update = ['pesan'=>'-Alhamdulillah- '.$nama,'LED_PIN'=>2];
                         }
                         //data sudah ada
                         else{
@@ -107,13 +107,13 @@ class RfidController extends Controller
                     if( $time_now >= $awal_sahur && $time_now <= $akhir_sahur){
                         $waktu = 'saur';
                         $insert = $this->insert_status($uid,$waktu);
-                        $insert = ['pesan'=>'Alhamdulillah '.$nama,'LED_PIN'=>2];
+                        $insert = ['pesan'=>'-Alhamdulillah- '.$nama,'LED_PIN'=>2];
                     }
                     // jika absen masuk waktu buka
                     else if( $time_now >= $awal_buka && $time_now <= $akhir_buka){
                         $waktu = 'buka';
                         $insert = $this->insert_status($uid,$waktu);
-                        $insert = ['pesan'=>'Alhamdulillah '.$nama,'LED_PIN'=>2];
+                        $insert = ['pesan'=>'-Alhamdulillah- '.$nama,'LED_PIN'=>2];
                     }
                     //jika belum masuk waktunya absen
                     else {
@@ -131,7 +131,7 @@ class RfidController extends Controller
                         if($status[0]->saur = 0){
                             $waktu = 'saur';
                             $update = $this->update_status($id,$waktu);
-                            $update = ['pesan'=>'Alhamdulillah '.$nama,'LED_PIN'=>2];
+                            $update = ['pesan'=>'-Alhamdulillah- '.$nama,'LED_PIN'=>2];
                         }
                         //data sudah ada
                         else{
@@ -144,7 +144,7 @@ class RfidController extends Controller
                         if($status[0]->buka = 0){
                             $waktu = 'buka';
                             $update = $this->update_status($id,$waktu);
-                            $update = ['pesan'=>'Alhamdulillah '.$nama,'LED_PIN'=>2];
+                            $update = ['pesan'=>'-Alhamdulillah- '.$nama,'LED_PIN'=>2];
                         }
                         //data sudah ada
                         else{
@@ -162,7 +162,7 @@ class RfidController extends Controller
         }
         //jika RFID belum terdaftar
         else{
-            $data = ['pesan'=>'Kartu Belum    Terdaftar', 'LED_PIN'=>5];
+            $data = ['pesan'=>'Kartu Belum     Terdaftar', 'LED_PIN'=>5];
             return response()->json($data,200);
         }
 //
